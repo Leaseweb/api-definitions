@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "loadBalancers": {
+      "type": "array",
+      "items": {
+        "$ref": "./loadBalancerDetails.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

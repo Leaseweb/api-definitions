@@ -1,0 +1,15 @@
+{
+  "type": "string",
+  "description": "The current state",
+  "enum": [
+    "CREATING",
+    "DESTROYED",
+    "DESTROYING",
+    "FAILED",
+    "RUNNING",
+    "STARTING",
+    "STOPPED",
+    "STOPPING",
+    "UNKNOWN"
+  ]
+}

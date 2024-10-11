@@ -1,0 +1,11 @@
+{
+  "schema": {
+    "type": "string",
+    "format": "uuid"
+  },
+  "name": "instanceId",
+  "in": "path",
+  "required": true,
+  "description": "Instance's ID",
+  "example": "695ddd91-051f-4dd6-9120-938a927a47d0"
+}

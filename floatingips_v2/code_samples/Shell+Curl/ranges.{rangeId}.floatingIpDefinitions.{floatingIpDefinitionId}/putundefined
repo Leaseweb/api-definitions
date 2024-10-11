@@ -1,0 +1,5 @@
+curl --request PUT \
+  --url https://api.leaseweb.com/floatingIps/v2/ranges/10.0.0.0_29/floatingIpDefinitions/%7BfloatingIpDefinitionId%7D \
+  --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
+  --header 'content-type: application/json' \
+  --data '{"anchorIp":"string","passiveAnchorIp":"string"}'

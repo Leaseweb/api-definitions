@@ -1,0 +1,10 @@
+{
+  "title": "autoScalingGroupType",
+  "type": "string",
+  "description": "Auto Scaling Group type",
+  "enum": [
+    "MANUAL",
+    "SCHEDULED",
+    "CPU_BASED"
+  ]
+}

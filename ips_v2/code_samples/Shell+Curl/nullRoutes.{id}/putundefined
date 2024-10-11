@@ -1,0 +1,4 @@
+curl --request PUT \
+  --url https://api.leaseweb.com/ipMgmt/v2/nullRoutes/%7Bid%7D \
+  --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
+  --header 'content-type: application/json'

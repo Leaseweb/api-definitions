@@ -1,0 +1,10 @@
+{
+  "schema": {
+    "type": "string"
+  },
+  "name": "colocationId",
+  "in": "path",
+  "required": true,
+  "description": "Colocation Id",
+  "example": "12312"
+}

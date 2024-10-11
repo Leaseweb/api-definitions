@@ -1,0 +1,43 @@
+{
+  "allOf": [
+    {
+      "$ref": "./loadBalancer.json"
+    },
+    {
+      "title": "loadBalancerDetails",
+      "type": "object",
+      "required": [
+        "contract",
+        "region",
+        "ips",
+        "configuration",
+        "privateNetwork",
+        "autoScalingGroup"
+      ],
+      "nullable": true,
+      "properties": {
+        "ips": {
+          "type": "array",
+          "items": {
+            "$ref": "./ipDetails.json"
+          }
+        },
+        "region": {
+          "$ref": "./regionName.json"
+        },
+        "configuration": {
+          "$ref": "./loadBalancerConfiguration.json"
+        },
+        "autoScalingGroup": {
+          "$ref": "./autoScalingGroup.json"
+        },
+        "privateNetwork": {
+          "$ref": "./privateNetwork.json"
+        },
+        "contract": {
+          "$ref": "./contract.json"
+        }
+      }
+    }
+  ]
+}

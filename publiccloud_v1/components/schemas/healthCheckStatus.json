@@ -1,0 +1,10 @@
+{
+  "description": "Health check status",
+  "type": "string",
+  "enum": [
+    "HEALTHY",
+    "UNHEALTHY",
+    "MAINTENANCE",
+    "UNKNOWN"
+  ]
+}

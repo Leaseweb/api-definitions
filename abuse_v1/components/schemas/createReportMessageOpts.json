@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "body": {
+      "type": "string",
+      "description": "Plain text body of the message, for newlines use '\n'.",
+      "example": "I have resolved this issue."
+    }
+  },
+  "required": [
+    "body"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "schema": {
+    "type": "string"
+  },
+  "name": "serverId",
+  "in": "path",
+  "required": true,
+  "description": "Id of the server",
+  "example": "23143213"
+}

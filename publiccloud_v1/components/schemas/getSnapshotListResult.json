@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "snapshots": {
+      "type": "array",
+      "items": {
+        "$ref": "./snapshot.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

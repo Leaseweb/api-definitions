@@ -1,0 +1,17 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+payload = "{\"protocol\":\"HTTPS\",\"port\":0,\"certificate\":{\"privateKey\":\"string\",\"certificate\":\"string\",\"chain\":\"string\"},\"defaultRule\":{\"targetGroupId\":\"48ef2c38-9f7c-40bd-9b53-7e9ad33e6373\"}}"
+
+headers = {
+    'content-type': "application/json",
+    'X-LSW-Auth': "REPLACE_KEY_VALUE"
+    }
+
+conn.request("PUT", "/publicCloud/v1/loadBalancers/695ddd91-051f-4dd6-9120-938a927a47d0/listeners/695ddd91-051f-4dd6-9120-938a927a47d0", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

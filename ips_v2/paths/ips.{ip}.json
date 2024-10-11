@@ -1,0 +1,457 @@
+{
+  "get": {
+    "operationId": "get/ips/{ip}",
+    "summary": "Inspect an IP",
+    "description": "",
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "ip": "192.0.2.1",
+                  "version": 4,
+                  "type": "NORMAL_IP",
+                  "prefixLength": 32,
+                  "primary": true,
+                  "reverseLookup": "mydomain1.example.com",
+                  "nullRouted": false,
+                  "nullLevel": null,
+                  "unnullingAllowed": false,
+                  "equipmentId": "1234",
+                  "assignedContract": {
+                    "id": "5643634"
+                  },
+                  "subnet": {
+                    "id": "192.0.2.0_24",
+                    "networkIp": "192.0.2.0",
+                    "prefixLength": 24,
+                    "gateway": "192.0.2.254"
+                  }
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "default": {},
+              "properties": {
+                "ip": {
+                  "type": "string",
+                  "description": "IP address"
+                },
+                "version": {
+                  "type": "integer",
+                  "description": "Protocol version (4 or 6)",
+                  "default": 0
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Type of the IP (NORMAL_IP, NETWORK, BROADCAST, GATEWAY, ROUTER1, ROUTER2, IPMI)"
+                },
+                "prefixLength": {
+                  "type": "integer",
+                  "description": "Prefix length of the IP range represented by the record. Note: this is not the same as `subnet.prefixLength`.",
+                  "default": 0
+                },
+                "primary": {
+                  "type": "boolean",
+                  "description": "Boolean indicating if this is the primary IP of the assigned equipment"
+                },
+                "reverseLookup": {
+                  "type": "string",
+                  "description": "Reverse lookup set for the IP. This only applies to IPv4. For IPv6 see [GET /ips/{ip}/reverseLookup](#operation/get/ips/{ip}/reverseLookup)."
+                },
+                "nullRouted": {
+                  "type": "boolean",
+                  "description": "Boolean to indicate if the IP is null-routed",
+                  "default": false
+                },
+                "nullLevel": {
+                  "type": "integer",
+                  "nullable": true,
+                  "description": "Null route level"
+                },
+                "unnullingAllowed": {
+                  "type": "boolean",
+                  "description": "Boolean indicating if the null route can be removed",
+                  "default": false
+                },
+                "equipmentId": {
+                  "type": "string",
+                  "description": "ID of the equipment using the IP"
+                },
+                "assignedContract": {
+                  "type": "object",
+                  "description": "Object containing information about the contract connected to the IP",
+                  "default": {},
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the contract connected to the IP"
+                    }
+                  }
+                },
+                "subnet": {
+                  "type": "object",
+                  "description": "Object containing information about the network and gateway",
+                  "default": {},
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Subnet identifier consisting of network IP and prefix length separated by underscore (e.g. 192.0.2.0_24)"
+                    },
+                    "networkIp": {
+                      "type": "string",
+                      "description": "Network IP of the subnet"
+                    },
+                    "prefixLength": {
+                      "type": "integer",
+                      "description": "Address prefix length",
+                      "default": 0
+                    },
+                    "gateway": {
+                      "type": "string",
+                      "description": "The gateway IP to be used in network settings"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Authentication is required.",
+        "content": {}
+      },
+      "403": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "ACCESS_DENIED",
+                  "errorMessage": "The access token is expired or invalid."
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "SERVER_ERROR",
+                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
+                }
+              }
+            }
+          }
+        }
+      },
+      "503": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "TEMPORARILY_UNAVAILABLE",
+                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "IPs"
+    ],
+    "x-codeSamples": [
+      {
+        "lang": "Shell + Curl",
+        "source": {
+          "$ref": "../code_samples/Shell+Curl/ips.{ip}/getundefined"
+        }
+      },
+      {
+        "lang": "Python + Python3",
+        "source": {
+          "$ref": "../code_samples/Python+Python3/ips.{ip}/getundefined"
+        }
+      },
+      {
+        "lang": "Php + Http2",
+        "source": {
+          "$ref": "../code_samples/Php+Http2/ips.{ip}/getundefined"
+        }
+      },
+      {
+        "lang": "Ruby + Native",
+        "source": {
+          "$ref": "../code_samples/Ruby+Native/ips.{ip}/getundefined"
+        }
+      },
+      {
+        "lang": "Node + Native",
+        "source": {
+          "$ref": "../code_samples/Node+Native/ips.{ip}/getundefined"
+        }
+      }
+    ]
+  },
+  "put": {
+    "operationId": "put/ips/{ip}",
+    "summary": "Update an IP",
+    "description": "Use this operation to set reverse lookup for IPv4 IP addresses.",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "examples": {
+            "example": {
+              "value": {
+                "reverseLookup": "mydomain1.example.com"
+              }
+            }
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "reverseLookup": {
+                "type": "string",
+                "example": "mydomain1.example.com"
+              }
+            },
+            "required": [
+              "reverseLookup"
+            ]
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "ip": "192.0.2.1",
+                  "version": 4,
+                  "type": "NORMAL_IP",
+                  "prefixLength": 32,
+                  "primary": true,
+                  "reverseLookup": "mydomain1.example.com",
+                  "nullRouted": false,
+                  "nullLevel": null,
+                  "unnullingAllowed": false,
+                  "equipmentId": "1234",
+                  "assignedContract": {
+                    "id": "5643634"
+                  },
+                  "subnet": {
+                    "id": "192.0.2.0_24",
+                    "networkIp": "192.0.2.0",
+                    "prefixLength": 24,
+                    "gateway": "192.0.2.254"
+                  }
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "default": {},
+              "properties": {
+                "ip": {
+                  "type": "string",
+                  "description": "IP address"
+                },
+                "version": {
+                  "type": "integer",
+                  "description": "Protocol version (4 or 6)",
+                  "default": 0
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Type of the IP (NORMAL_IP, NETWORK, BROADCAST, GATEWAY, ROUTER1, ROUTER2, IPMI)"
+                },
+                "prefixLength": {
+                  "type": "integer",
+                  "description": "Prefix length of the IP range represented by the record. Note: this is not the same as `subnet.prefixLength`.",
+                  "default": 0
+                },
+                "primary": {
+                  "type": "boolean",
+                  "description": "Boolean indicating if this is the primary IP of the assigned equipment"
+                },
+                "reverseLookup": {
+                  "type": "string",
+                  "description": "Reverse lookup set for the IP. This only applies to IPv4. For IPv6 see [GET /ips/{ip}/reverseLookup](#operation/get/ips/{ip}/reverseLookup)."
+                },
+                "nullRouted": {
+                  "type": "boolean",
+                  "description": "Boolean to indicate if the IP is null-routed",
+                  "default": false
+                },
+                "nullLevel": {
+                  "type": "integer",
+                  "nullable": true,
+                  "description": "Null route level"
+                },
+                "unnullingAllowed": {
+                  "type": "boolean",
+                  "description": "Boolean indicating if the null route can be removed",
+                  "default": false
+                },
+                "equipmentId": {
+                  "type": "string",
+                  "description": "ID of the equipment using the IP"
+                },
+                "assignedContract": {
+                  "type": "object",
+                  "description": "Object containing information about the contract connected to the IP",
+                  "default": {},
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the contract connected to the IP"
+                    }
+                  }
+                },
+                "subnet": {
+                  "type": "object",
+                  "description": "Object containing information about the network and gateway",
+                  "default": {},
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Subnet identifier consisting of network IP and prefix length separated by underscore (e.g. 192.0.2.0_24)"
+                    },
+                    "networkIp": {
+                      "type": "string",
+                      "description": "Network IP of the subnet"
+                    },
+                    "prefixLength": {
+                      "type": "integer",
+                      "description": "Address prefix length",
+                      "default": 0
+                    },
+                    "gateway": {
+                      "type": "string",
+                      "description": "The gateway IP to be used in network settings"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Authentication is required.",
+        "content": {}
+      },
+      "403": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "ACCESS_DENIED",
+                  "errorMessage": "The access token is expired or invalid."
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "SERVER_ERROR",
+                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
+                }
+              }
+            }
+          }
+        }
+      },
+      "503": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "examples": {
+              "example": {
+                "value": {
+                  "errorCode": "TEMPORARILY_UNAVAILABLE",
+                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "IPs"
+    ],
+    "x-codeSamples": [
+      {
+        "lang": "Shell + Curl",
+        "source": {
+          "$ref": "../code_samples/Shell+Curl/ips.{ip}/putundefined"
+        }
+      },
+      {
+        "lang": "Python + Python3",
+        "source": {
+          "$ref": "../code_samples/Python+Python3/ips.{ip}/putundefined"
+        }
+      },
+      {
+        "lang": "Php + Http2",
+        "source": {
+          "$ref": "../code_samples/Php+Http2/ips.{ip}/putundefined"
+        }
+      },
+      {
+        "lang": "Ruby + Native",
+        "source": {
+          "$ref": "../code_samples/Ruby+Native/ips.{ip}/putundefined"
+        }
+      },
+      {
+        "lang": "Node + Native",
+        "source": {
+          "$ref": "../code_samples/Node+Native/ips.{ip}/putundefined"
+        }
+      }
+    ]
+  },
+  "parameters": [
+    {
+      "schema": {
+        "type": "string"
+      },
+      "name": "ip",
+      "in": "path",
+      "required": true,
+      "description": "IP address or IP address with prefixLength {ip}_{prefix}. If prefixLength is not given, then we assume 32 (for IPv4) or 128 (for IPv6). PrefixLength is mandatory for IP range, for example, the IPv6 address range with prefixLength = 112",
+      "example": "192.0.2.1"
+    }
+  ]
+}

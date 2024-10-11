@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "autoScalingGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "./autoScalingGroup.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "title": "autoScalingGroups",
+  "type": "object"
+}

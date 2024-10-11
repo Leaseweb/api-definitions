@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "isos": {
+      "type": "array",
+      "items": {
+        "$ref": "./iso.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

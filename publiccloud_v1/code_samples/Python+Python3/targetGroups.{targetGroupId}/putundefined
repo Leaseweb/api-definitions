@@ -1,0 +1,17 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+payload = "{\"id\":\"7e59b33d-05f3-4078-b251-c7831ae8fe14\",\"name\":\"string\",\"protocol\":\"HTTP\",\"port\":0,\"region\":\"eu-west-3\",\"healthCheck\":{\"protocol\":\"HTTP\",\"method\":\"GET\",\"uri\":\"/\",\"host\":\"string\",\"port\":0}}"
+
+headers = {
+    'content-type': "application/json",
+    'X-LSW-Auth': "REPLACE_KEY_VALUE"
+    }
+
+conn.request("PUT", "/publicCloud/v1/targetGroups/fb769dab-3daa-47e4-89ed-06a4b6499176", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

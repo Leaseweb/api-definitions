@@ -1,0 +1,31 @@
+{
+  "title": "loadBalancerListener",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "description": "Protocol of the listener."
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port for the listener"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The listener unique identifier"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "./loadBalancerListenerRule.json"
+      }
+    }
+  },
+  "required": [
+    "protocol",
+    "port",
+    "id",
+    "rules"
+  ]
+}

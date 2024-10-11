@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "enum": [
+    "GET",
+    "HEAD",
+    "POST",
+    "OPTIONS"
+  ]
+}

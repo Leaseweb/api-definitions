@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "ips": {
+      "type": "array",
+      "items": {
+        "$ref": "./ipDetails.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

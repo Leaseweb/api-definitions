@@ -1,0 +1,10 @@
+{
+  "schema": {
+    "type": "string"
+  },
+  "name": "privateRackId",
+  "in": "path",
+  "required": true,
+  "description": "Id of the dedicated rack",
+  "example": "2314213"
+}

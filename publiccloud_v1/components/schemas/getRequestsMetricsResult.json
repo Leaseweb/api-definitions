@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "metrics": {
+      "title": "requestMetrics",
+      "type": "object",
+      "$ref": "./metricsProperties.json"
+    },
+    "_metadata": {
+      "type": "object",
+      "title": "requestMetricsMetadata",
+      "$ref": "./metricsMetadataProperties.json"
+    }
+  },
+  "type": "object"
+}

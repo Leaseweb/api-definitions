@@ -1,0 +1,12 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+headers = { 'X-LSW-Auth': "REPLACE_KEY_VALUE" }
+
+conn.request("DELETE", "/ipMgmt/v2/ips/192.0.2.1/nullRoute", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

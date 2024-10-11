@@ -1,0 +1,37 @@
+{
+  "title": "healthCheck",
+  "required": [
+    "protocol",
+    "method",
+    "uri",
+    "host",
+    "port"
+  ],
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "protocol": {
+      "$ref": "./protocol.json"
+    },
+    "method": {
+      "type": "string",
+      "$ref": "./httpMethod.json",
+      "description": "HTTP method to be used for health check - Required if `protocol` is HTTP or HTTPS. Not allowed if `protocol` is TCP.",
+      "nullable": true
+    },
+    "uri": {
+      "type": "string",
+      "description": "URI to check in the target instances",
+      "example": "/"
+    },
+    "host": {
+      "type": "string",
+      "description": "Host for the health check if any",
+      "nullable": true
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port number"
+    }
+  }
+}

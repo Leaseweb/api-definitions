@@ -1,0 +1,40 @@
+{
+  "nullable": true,
+  "type": "object",
+  "title": "loadBalancer",
+  "required": [
+    "id",
+    "type",
+    "resources",
+    "reference",
+    "state",
+    "startedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The load balancer unique identifier"
+    },
+    "type": {
+      "$ref": "./typeName.json"
+    },
+    "resources": {
+      "$ref": "./resources.json"
+    },
+    "reference": {
+      "type": "string",
+      "description": "The identifying name set to the load balancer",
+      "nullable": true
+    },
+    "state": {
+      "$ref": "./state.json"
+    },
+    "startedAt": {
+      "type": "string",
+      "description": "Date and time when the load balancer was started for the first time, right after launching it",
+      "format": "date-time",
+      "nullable": true
+    }
+  }
+}

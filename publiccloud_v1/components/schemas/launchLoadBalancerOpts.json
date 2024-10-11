@@ -1,0 +1,48 @@
+{
+  "properties": {
+    "region": {
+      "$ref": "./regionName.json"
+    },
+    "type": {
+      "$ref": "./typeName.json"
+    },
+    "reference": {
+      "type": "string",
+      "description": "An identifying name you can refer to the load balancer"
+    },
+    "contractType": {
+      "type": "string",
+      "enum": [
+        "HOURLY",
+        "MONTHLY"
+      ],
+      "description": "The contract applicable for the load balancer"
+    },
+    "billingFrequency": {
+      "type": "integer",
+      "description": "How often you wish to be charged. Used only when contract type is MONTHLY. '1' means every month, '3' every three months and so on.",
+      "enum": [
+        1,
+        3,
+        6,
+        12
+      ]
+    },
+    "rootDiskStorageType": {
+      "$ref": "./storageType.json"
+    },
+    "targetPort": {
+      "type": "integer",
+      "description": "The port that the registered instances listen to"
+    }
+  },
+  "required": [
+    "region",
+    "type",
+    "contractType",
+    "billingFrequency",
+    "rootDiskStorageType",
+    "targetPort"
+  ],
+  "type": "object"
+}

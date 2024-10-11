@@ -1,0 +1,15 @@
+{
+  "description": "Reverse lookup set for a specific IP address",
+  "properties": {
+    "ip": {
+      "type": "string",
+      "description": "IP address"
+    },
+    "reverseLookup": {
+      "type": "string",
+      "description": "Reverse lookup value"
+    }
+  },
+  "title": "Reverse Lookup",
+  "type": "object"
+}

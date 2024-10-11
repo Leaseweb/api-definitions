@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    },
+    "instanceTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "./instanceType.json"
+      }
+    }
+  },
+  "type": "object"
+}

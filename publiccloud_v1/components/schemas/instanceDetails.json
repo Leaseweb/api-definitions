@@ -1,0 +1,29 @@
+{
+  "allOf": [
+    {
+      "$ref": "./instanceBase.json"
+    },
+    {
+      "title": "instanceDetails",
+      "required": [
+        "iso",
+        "privateNetwork"
+      ],
+      "type": "object",
+      "properties": {
+        "iso": {
+          "$ref": "./iso.json"
+        },
+        "privateNetwork": {
+          "$ref": "./privateNetwork.json"
+        },
+        "ips": {
+          "type": "array",
+          "items": {
+            "$ref": "./ipDetails.json"
+          }
+        }
+      }
+    }
+  ]
+}

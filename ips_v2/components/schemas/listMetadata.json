@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "totalCount": {
+      "type": "number"
+    },
+    "offset": {
+      "type": "number"
+    },
+    "limit": {
+      "type": "number"
+    }
+  },
+  "type": "object"
+}

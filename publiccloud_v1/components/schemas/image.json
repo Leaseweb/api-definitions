@@ -1,0 +1,32 @@
+{
+  "title": "image",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "family",
+    "flavour",
+    "custom"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "./imageId.json"
+    },
+    "name": {
+      "type": "string",
+      "example": "Ubuntu 20.04 LTS (x86_64)"
+    },
+    "family": {
+      "type": "string",
+      "example": "linux"
+    },
+    "flavour": {
+      "type": "string",
+      "example": "ubuntu"
+    },
+    "custom": {
+      "description": "Standard or Custom image",
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "type": {
+      "$ref": "./typeName.json"
+    },
+    "reference": {
+      "type": "string",
+      "description": "An identifying name you can refer to the load balancer"
+    },
+    "contractType": {
+      "$ref": "./contractType.json"
+    },
+    "stickySession": {
+      "$ref": "./stickySession.json"
+    },
+    "balance": {
+      "$ref": "./balance.json"
+    },
+    "xForwardedFor": {
+      "type": "boolean",
+      "description": "Is xForwardedFor enabled or not"
+    },
+    "idleTimeOut": {
+      "type": "integer",
+      "description": "Time to close the connection if load balancer is idle"
+    },
+    "targetPort": {
+      "type": "integer",
+      "description": "Port on which the backend (target) servers are listening to handle incoming requests"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,5 @@
+curl --request POST \
+  --url https://api.leaseweb.com/publicCloud/v1/loadBalancers \
+  --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
+  --header 'content-type: application/json' \
+  --data '{"region":"eu-west-3","type":"lsw.m3.large","reference":"string","contractType":"HOURLY","billingFrequency":1,"rootDiskStorageType":"LOCAL","targetPort":0}'

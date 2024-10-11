@@ -1,0 +1,19 @@
+{
+  "allOf": [
+    {
+      "$ref": "./instanceBase.json"
+    },
+    {
+      "title": "instance",
+      "type": "object",
+      "properties": {
+        "ips": {
+          "type": "array",
+          "items": {
+            "$ref": "./ip.json"
+          }
+        }
+      }
+    }
+  ]
+}

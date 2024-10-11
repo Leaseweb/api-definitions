@@ -1,0 +1,26 @@
+{
+  "content": {
+    "application/json": {
+      "examples": {
+        "example": {
+          "value": {
+            "errorCode": "TEMPORARILY_UNAVAILABLE",
+            "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
+          }
+        }
+      },
+      "schema": {
+        "properties": {
+          "errorCode": {
+            "type": "string"
+          },
+          "errorMessage": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "description": ""
+}

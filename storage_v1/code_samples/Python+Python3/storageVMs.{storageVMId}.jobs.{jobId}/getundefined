@@ -1,0 +1,12 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+headers = { 'X-LSW-Auth': "REPLACE_KEY_VALUE" }
+
+conn.request("GET", "/storage/v1/storageVMs/1575dd1c-dddf-11ed-af62-000c299d72cd/jobs/d385ae54-3763-11ee-af62-000c299d72cd", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

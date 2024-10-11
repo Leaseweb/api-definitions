@@ -1,0 +1,5 @@
+curl --request POST \
+  --url https://api.leaseweb.com/abuse/v1/reports/abc123/resolve \
+  --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
+  --header 'content-type: application/json' \
+  --data '{"resolutions":[["CONTENT_REMOVED","SUSPENDED"]],"message":"string"}'

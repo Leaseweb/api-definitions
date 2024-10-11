@@ -1,0 +1,17 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+payload = "{\"region\":\"eu-west-3\",\"type\":\"lsw.m3.large\",\"reference\":\"string\",\"contractType\":\"HOURLY\",\"billingFrequency\":1,\"rootDiskStorageType\":\"LOCAL\",\"targetPort\":0}"
+
+headers = {
+    'content-type': "application/json",
+    'X-LSW-Auth': "REPLACE_KEY_VALUE"
+    }
+
+conn.request("POST", "/publicCloud/v1/loadBalancers", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

@@ -1,0 +1,15 @@
+<?php
+
+$client = new http\Client;
+$request = new http\Client\Request;
+
+$request->setRequestUrl('https://api.leaseweb.com/storage/v1/storageVMs/1575dd1c-dddf-11ed-af62-000c299d72cd/jobs/d385ae54-3763-11ee-af62-000c299d72cd');
+$request->setRequestMethod('GET');
+$request->setHeaders([
+  'X-LSW-Auth' => 'REPLACE_KEY_VALUE'
+]);
+
+$client->enqueue($request)->send();
+$response = $client->getResponse();
+
+echo $response->getBody();

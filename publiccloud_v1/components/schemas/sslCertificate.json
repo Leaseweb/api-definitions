@@ -1,0 +1,23 @@
+{
+  "title": "sslCertificate",
+  "type": "object",
+  "properties": {
+    "privateKey": {
+      "type": "string",
+      "description": "Client Private Key. Required only if protocol is HTTPS"
+    },
+    "certificate": {
+      "type": "string",
+      "description": "Client Certificate. Required only if protocol is HTTPS"
+    },
+    "chain": {
+      "type": "string",
+      "description": "CA certificate. Not required, but can be added if protocol is HTTPS"
+    }
+  },
+  "required": [
+    "privateKey",
+    "certificate",
+    "chain"
+  ]
+}

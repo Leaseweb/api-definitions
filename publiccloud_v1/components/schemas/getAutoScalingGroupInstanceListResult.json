@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "instances": {
+      "type": "array",
+      "items": {
+        "$ref": "./autoScaledInstance.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,55 @@
+{
+  "title": "loadBalancerListenerOpts",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "enum": [
+        "HTTPS",
+        "HTTP",
+        "TCP"
+      ]
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port that the listener listens to"
+    },
+    "certificate": {
+      "title": "certificate",
+      "type": "object",
+      "properties": {
+        "privateKey": {
+          "type": "string",
+          "description": "Client Private Key. Required only if protocol is HTTPS"
+        },
+        "certificate": {
+          "type": "string",
+          "description": "Client Certificate. Required only if protocol is HTTPS"
+        },
+        "chain": {
+          "type": "string",
+          "description": "CA certificate. Not required, but can be added if protocol is HTTPS",
+          "nullable": true
+        }
+      }
+    },
+    "defaultRule": {
+      "nullable": true,
+      "type": "object",
+      "title": "listenerDefaultRule",
+      "properties": {
+        "targetGroupId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The target group unique identifier"
+        }
+      }
+    }
+  },
+  "required": [
+    "protocol",
+    "port",
+    "certificate",
+    "defaultRule"
+  ]
+}

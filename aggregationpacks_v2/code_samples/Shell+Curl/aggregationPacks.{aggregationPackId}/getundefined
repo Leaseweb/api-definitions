@@ -1,0 +1,3 @@
+curl --request GET \
+  --url https://api.leaseweb.com/bareMetals/v2/aggregationPacks/%7BaggregationPackId%7D \
+  --header 'X-LSW-Auth: REPLACE_KEY_VALUE'

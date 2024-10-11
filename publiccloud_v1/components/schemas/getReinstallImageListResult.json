@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "./imageDetails.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "type": "object"
+}

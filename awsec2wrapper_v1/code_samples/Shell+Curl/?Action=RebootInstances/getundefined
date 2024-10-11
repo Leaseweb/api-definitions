@@ -1,0 +1,3 @@
+curl --request GET \
+  --url 'https://api.leaseweb.com/aws/ec2/?InstanceId.1=SOME_STRING_VALUE&Action=RebootInstances' \
+  --header 'Authorization: REPLACE_KEY_VALUE'

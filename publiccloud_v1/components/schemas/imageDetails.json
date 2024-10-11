@@ -1,0 +1,114 @@
+{
+  "allOf": [
+    {
+      "$ref": "./image.json"
+    },
+    {
+      "title": "imageDetails",
+      "type": "object",
+      "required": [
+        "state",
+        "stateReason",
+        "region",
+        "createdAt",
+        "updatedAt",
+        "storageSize",
+        "version",
+        "architecture",
+        "marketApps",
+        "storageTypes",
+        "minDiskSize"
+      ],
+      "properties": {
+        "storageSize": {
+          "nullable": true,
+          "type": "object",
+          "title": "storageSize",
+          "required": [
+            "size",
+            "unit"
+          ],
+          "properties": {
+            "size": {
+              "type": "number",
+              "description": "The storage size"
+            },
+            "unit": {
+              "type": "string",
+              "description": "The storage size unit",
+              "example": "GB"
+            }
+          }
+        },
+        "state": {
+          "nullable": true,
+          "type": "string",
+          "example": "READY"
+        },
+        "stateReason": {
+          "nullable": true,
+          "description": "The reason in case of failure",
+          "type": "string",
+          "example": "Could not find configured bucket"
+        },
+        "region": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "./regionName.json"
+            }
+          ]
+        },
+        "createdAt": {
+          "nullable": true,
+          "type": "string",
+          "description": "Date when the image was created",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "nullable": true,
+          "type": "string",
+          "description": "Date when the image was updated",
+          "format": "date-time"
+        },
+        "version": {
+          "nullable": true,
+          "type": "string",
+          "example": "20.04"
+        },
+        "architecture": {
+          "nullable": true,
+          "type": "string",
+          "example": "x86_64"
+        },
+        "marketApps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "example": "LOADBALANCER"
+          }
+        },
+        "storageTypes": {
+          "type": "array",
+          "description": "The supported storage types for the instance type",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "CENTRAL",
+            "LOCAL"
+          ]
+        },
+        "minDiskSize": {
+          "nullable": true,
+          "type": "integer",
+          "description": "The image size in GB.",
+          "minimum": 5,
+          "maximum": 1000
+        }
+      }
+    }
+  ]
+}
