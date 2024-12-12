@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "LeaseWeb API for launching and managing VPS (v1)",
+    "title": "LeaseWeb API for launching and managing VPS",
     "version": "v1",
     "description": "The base URL for this API is: **https://api.leaseweb.com/publicCloud/v1/**\n\nThis API provides ways to launch and manage VPS.\n\n<div class=\"badge\">BETA</div> This API is in BETA. Documentation might be incorrect or incomplete. Functionality might change with the final release.\n",
     "license": {
