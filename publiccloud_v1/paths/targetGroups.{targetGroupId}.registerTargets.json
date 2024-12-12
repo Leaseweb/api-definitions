@@ -33,6 +33,9 @@
       "403": {
         "$ref": "../components/responses/403.json"
       },
+      "404": {
+        "$ref": "../components/responses/404.json"
+      },
       "423": {
         "$ref": "../components/responses/423.json"
       },

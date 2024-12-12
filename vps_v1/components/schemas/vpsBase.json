@@ -1,0 +1,73 @@
+{
+  "title": "vps",
+  "type": "object",
+  "required": [
+    "id",
+    "pack",
+    "resources",
+    "region",
+    "datacenter",
+    "reference",
+    "image",
+    "state",
+    "hasPublicIpV4",
+    "rootDiskSize",
+    "startedAt",
+    "contract"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "123581321"
+    },
+    "pack": {
+      "type": "string",
+      "description": "Vps package",
+      "$ref": "./vpsPackType.json"
+    },
+    "resources": {
+      "$ref": "./baseResources.json"
+    },
+    "region": {
+      "$ref": "./regionName.json"
+    },
+    "datacenter": {
+      "$ref": "./datacenter.json"
+    },
+    "reference": {
+      "type": "string",
+      "description": "The identifying name set to the instance"
+    },
+    "image": {
+      "$ref": "./image.json"
+    },
+    "marketAppId": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "./marketAppId.json"
+        }
+      ]
+    },
+    "state": {
+      "$ref": "./vpsState.json"
+    },
+    "hasPublicIpV4": {
+      "type": "boolean"
+    },
+    "rootDiskSize": {
+      "$ref": "./rootDiskSize.json"
+    },
+    "startedAt": {
+      "type": "string",
+      "description": "Date and time when the VPS was started for the first time, right after launching it",
+      "format": "date-time",
+      "nullable": true
+    },
+    "contract": {
+      "$ref": "./vpsContract.json"
+    }
+  }
+}

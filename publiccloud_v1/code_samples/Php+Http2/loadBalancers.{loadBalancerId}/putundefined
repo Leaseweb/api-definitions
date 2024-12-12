@@ -4,7 +4,7 @@ $client = new http\Client;
 $request = new http\Client\Request;
 
 $body = new http\Message\Body;
-$body->append('{"type":"lsw.m3.large","reference":"string","contractType":"HOURLY","stickySession":{"enabled":true,"maxLifeTime":0},"balance":"roundrobin","xForwardedFor":true,"idleTimeOut":0,"targetPort":0}');
+$body->append('{"type":"lsw.m3.large","reference":"string","contractType":"HOURLY","stickySession":{"enabled":true,"maxLifeTime":0},"balance":"roundrobin","xForwardedFor":true,"idleTimeOut":0}');
 
 $request->setRequestUrl('https://api.leaseweb.com/publicCloud/v1/loadBalancers/695ddd91-051f-4dd6-9120-938a927a47d0');
 $request->setRequestMethod('PUT');

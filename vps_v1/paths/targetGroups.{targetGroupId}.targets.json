@@ -1,0 +1,13 @@
+{
+  "parameters": [
+    {
+      "$ref": "../components/parameters/targetGroupId.json"
+    },
+    {
+      "$ref": "../components/parameters/limit.json"
+    },
+    {
+      "$ref": "../components/parameters/offset.json"
+    }
+  ]
+}

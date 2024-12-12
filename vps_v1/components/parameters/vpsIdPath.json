@@ -1,0 +1,10 @@
+{
+  "schema": {
+    "type": "string"
+  },
+  "name": "vpsId",
+  "in": "path",
+  "required": true,
+  "description": "Vps ID",
+  "example": "123581321"
+}

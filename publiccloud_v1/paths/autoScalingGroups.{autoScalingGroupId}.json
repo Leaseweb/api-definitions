@@ -20,6 +20,9 @@
       "403": {
         "$ref": "../components/responses/403.json"
       },
+      "404": {
+        "$ref": "../components/responses/404.json"
+      },
       "500": {
         "$ref": "../components/responses/500.json"
       },
@@ -173,6 +176,9 @@
       "403": {
         "$ref": "../components/responses/403.json"
       },
+      "404": {
+        "$ref": "../components/responses/404.json"
+      },
       "500": {
         "$ref": "../components/responses/500.json"
       },
@@ -266,6 +272,9 @@
       },
       "403": {
         "$ref": "../components/responses/403.json"
+      },
+      "404": {
+        "$ref": "../components/responses/404.json"
       },
       "500": {
         "$ref": "../components/responses/500.json"

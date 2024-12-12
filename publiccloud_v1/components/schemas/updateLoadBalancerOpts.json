@@ -23,10 +23,6 @@
     "idleTimeOut": {
       "type": "integer",
       "description": "Time to close the connection if load balancer is idle"
-    },
-    "targetPort": {
-      "type": "integer",
-      "description": "Port on which the backend (target) servers are listening to handle incoming requests"
     }
   },
   "type": "object"

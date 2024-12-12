@@ -11,7 +11,7 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 request = Net::HTTP::Put.new(url)
 request["content-type"] = 'application/json'
 request["X-LSW-Auth"] = 'REPLACE_KEY_VALUE'
-request.body = "{\"type\":\"lsw.m3.large\",\"reference\":\"string\",\"contractType\":\"HOURLY\",\"stickySession\":{\"enabled\":true,\"maxLifeTime\":0},\"balance\":\"roundrobin\",\"xForwardedFor\":true,\"idleTimeOut\":0,\"targetPort\":0}"
+request.body = "{\"type\":\"lsw.m3.large\",\"reference\":\"string\",\"contractType\":\"HOURLY\",\"stickySession\":{\"enabled\":true,\"maxLifeTime\":0},\"balance\":\"roundrobin\",\"xForwardedFor\":true,\"idleTimeOut\":0}"
 
 response = http.request(request)
 puts response.read_body

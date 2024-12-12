@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "metrics": {
+      "type": "object",
+      "title": "dataTrafficMetrics",
+      "properties": {
+        "DOWN_PUBLIC": {
+          "$ref": "./trafficMetric.json"
+        },
+        "UP_PUBLIC": {
+          "$ref": "./trafficMetric.json"
+        }
+      }
+    },
+    "_metadata": {
+      "title": "trafficMetricsMetaData",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "./metricsMetadataProperties.json"
+        },
+        {
+          "properties": {
+            "summary": {
+              "title": "summary",
+              "type": "object",
+              "properties": {
+                "DOWN_PUBLIC": {
+                  "$ref": "./trafficMetricSummary.json"
+                },
+                "UP_PUBLIC": {
+                  "$ref": "./trafficMetricSummary.json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

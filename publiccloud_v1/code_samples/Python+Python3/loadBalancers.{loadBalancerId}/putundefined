@@ -2,7 +2,7 @@ import http.client
 
 conn = http.client.HTTPSConnection("api.leaseweb.com")
 
-payload = "{\"type\":\"lsw.m3.large\",\"reference\":\"string\",\"contractType\":\"HOURLY\",\"stickySession\":{\"enabled\":true,\"maxLifeTime\":0},\"balance\":\"roundrobin\",\"xForwardedFor\":true,\"idleTimeOut\":0,\"targetPort\":0}"
+payload = "{\"type\":\"lsw.m3.large\",\"reference\":\"string\",\"contractType\":\"HOURLY\",\"stickySession\":{\"enabled\":true,\"maxLifeTime\":0},\"balance\":\"roundrobin\",\"xForwardedFor\":true,\"idleTimeOut\":0}"
 
 headers = {
     'content-type': "application/json",

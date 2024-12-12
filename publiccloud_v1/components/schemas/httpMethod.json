@@ -5,5 +5,7 @@
     "HEAD",
     "POST",
     "OPTIONS"
-  ]
+  ],
+  "description": "HTTP method to be used for health check - Required if `protocol` is HTTP or HTTPS. Not allowed if `protocol` is TCP",
+  "nullable": true
 }

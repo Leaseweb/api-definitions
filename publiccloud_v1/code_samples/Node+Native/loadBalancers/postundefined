@@ -29,8 +29,7 @@ req.write(JSON.stringify({
   type: 'lsw.m3.large',
   reference: 'string',
   contractType: 'HOURLY',
-  billingFrequency: 1,
-  rootDiskStorageType: 'LOCAL',
-  targetPort: 0
+  contractTerm: 0,
+  billingFrequency: 1
 }));
 req.end();

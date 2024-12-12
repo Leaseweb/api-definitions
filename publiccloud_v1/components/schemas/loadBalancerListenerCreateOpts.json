@@ -1,0 +1,17 @@
+{
+  "allOf": [
+    {
+      "$ref": "./loadBalancerListenerOpts.json"
+    },
+    {
+      "title": "loadBalancerListenerCreateOpts",
+      "type": "object",
+      "properties": {},
+      "required": [
+        "protocol",
+        "port",
+        "defaultRule"
+      ]
+    }
+  ]
+}

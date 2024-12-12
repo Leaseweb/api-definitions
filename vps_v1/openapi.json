@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LeaseWeb API for launching and managing VPS (v1)",
+    "version": "v1",
+    "description": "The base URL for this API is: **https://api.leaseweb.com/publicCloud/v1/**\n\nThis API provides ways to launch and manage VPS.\n\n<div class=\"badge\">BETA</div> This API is in BETA. Documentation might be incorrect or incomplete. Functionality might change with the final release.\n",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "x-logo": {
+      "altText": "Leaseweb developer documentation",
+      "backgroundColor": "#5484c6",
+      "href": "https://developer.leaseweb.com",
+      "url": "https://developer.leaseweb.com/images/logo.png"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.leaseweb.com/publicCloud/v1"
+    }
+  ],
+  "security": [
+    {
+      "X-LSW-Auth": []
+    }
+  ],
+  "tags": [
+    {
+      "description": "The API uses standard HTTP status codes to indicate the success or failure of the API call. The response will be JSON. Most APIs use the following format:\n\n```json\n{\n    \"errorCode\": \"APP00800\",\n    \"errorMessage\": \"The connection with the DB cannot be established.\",\n    \"correlationId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"userMessage\": \"Cannot handle your request at the moment. Please try again later.\",\n    \"reference\": \"https://developer.leaseweb.com/errors/APP00800\"\n}\n```\n",
+      "name": "Errors",
+      "x-traitTag": true
+    },
+    {
+      "description": "Authentication for the APIs is required. To authenticate your call, you will need to sent your API key as `X-LSW-Auth` header.\n\nYou can generate API keys in the [Customer Portal](https://secure.leaseweb.com/api-client-management/).\n",
+      "name": "API Key Authentication",
+      "x-traitTag": true
+    },
+    {
+      "name": "Power"
+    },
+    {
+      "name": "Credentials"
+    },
+    {
+      "name": "ISOs"
+    },
+    {
+      "name": "Metrics"
+    },
+    {
+      "name": "VPS"
+    },
+    {
+      "name": "IPs"
+    },
+    {
+      "name": "Reinstall"
+    }
+  ],
+  "paths": {
+    "/regions": {
+      "$ref": "paths/regions.json"
+    },
+    "/instances/{instanceId}": {
+      "$ref": "paths/instances.{instanceId}.json"
+    },
+    "/instances/{instanceId}/cancelTermination": {
+      "$ref": "paths/instances.{instanceId}.cancelTermination.json"
+    },
+    "/{resource}/{resourceId}/start": {
+      "$ref": "paths/{resource}.{resourceId}.start.json"
+    },
+    "/{resource}/{resourceId}/stop": {
+      "$ref": "paths/{resource}.{resourceId}.stop.json"
+    },
+    "/{resource}/{resourceId}/reboot": {
+      "$ref": "paths/{resource}.{resourceId}.reboot.json"
+    },
+    "/instances/{instanceId}/console": {
+      "$ref": "paths/instances.{instanceId}.console.json"
+    },
+    "/instances/{instanceId}/instanceTypesUpdate": {
+      "$ref": "paths/instances.{instanceId}.instanceTypesUpdate.json"
+    },
+    "/{resource}/{resourceId}/credentials": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.json"
+    },
+    "/{resource}/{resourceId}/credentials/{type}": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.json"
+    },
+    "/{resource}/{resourceId}/credentials/{type}/{username}": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.{username}.json"
+    },
+    "/{resource}/{resourceId}/resetPassword": {
+      "$ref": "paths/{resource}.{resourceId}.resetPassword.json"
+    },
+    "/equipments/{equipmentId}/expenses": {
+      "$ref": "paths/equipments.{equipmentId}.expenses.json"
+    },
+    "/isos": {
+      "$ref": "paths/isos.json"
+    },
+    "/images/{imageId}": {
+      "$ref": "paths/images.{imageId}.json"
+    },
+    "/{resource}/{resourceId}/attachIso": {
+      "$ref": "paths/{resource}.{resourceId}.attachIso.json"
+    },
+    "/{resource}/{resourceId}/detachIso": {
+      "$ref": "paths/{resource}.{resourceId}.detachIso.json"
+    },
+    "/{resource}/{resourceId}/reinstall/images": {
+      "$ref": "paths/{resource}.{resourceId}.reinstall.images.json"
+    },
+    "/{resource}/{resourceId}/reinstall": {
+      "$ref": "paths/{resource}.{resourceId}.reinstall.json"
+    },
+    "/loadBalancers/{loadBalancerId}": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.json"
+    },
+    "/loadBalancers/{loadBalancerId}/listeners": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.json"
+    },
+    "/loadBalancers/{loadBalancerId}/listeners/{listenerId}": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.{listenerId}.json"
+    },
+    "/{resource}/{resourceId}/ips": {
+      "$ref": "paths/{resource}.{resourceId}.ips.json"
+    },
+    "/{resource}/{resourceId}/ips/{ip}": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.json"
+    },
+    "/{resource}/{resourceId}/ips/{ip}/null": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.null.json"
+    },
+    "/{resource}/{resourceId}/ips/{ip}/unnull": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.unnull.json"
+    },
+    "/{resource}/{resourceId}/metrics/datatraffic": {
+      "$ref": "paths/{resource}.{resourceId}.metrics.datatraffic.json"
+    },
+    "/instances/{instanceId}/metrics/cpu": {
+      "$ref": "paths/instances.{instanceId}.metrics.cpu.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/requests": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.requests.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/requestsPerSecond": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.requestsPerSecond.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/dataTransferred": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.dataTransferred.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/dataTransferredPerSecond": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.dataTransferredPerSecond.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/connections": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.connections.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/connectionsPerSecond": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.connectionsPerSecond.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/responseCodes": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.responseCodes.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/responseCodesPerSecond": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.responseCodesPerSecond.json"
+    },
+    "/instances/{instanceId}/addToPrivateNetwork": {
+      "$ref": "paths/instances.{instanceId}.addToPrivateNetwork.json"
+    },
+    "/instances/{instanceId}/removeFromPrivateNetwork": {
+      "$ref": "paths/instances.{instanceId}.removeFromPrivateNetwork.json"
+    },
+    "/instances/{instanceId}/snapshots": {
+      "$ref": "paths/instances.{instanceId}.snapshots.json"
+    },
+    "/instances/{instanceId}/snapshots/{snapshotId}": {
+      "$ref": "paths/instances.{instanceId}.snapshots.{snapshotId}.json"
+    },
+    "/autoScalingGroups/{autoScalingGroupId}": {
+      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.json"
+    },
+    "/autoScalingGroups/{autoScalingGroupId}/instances": {
+      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.instances.json"
+    },
+    "/autoScalingGroups/{autoScalingGroupId}/registerTargetGroup": {
+      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.registerTargetGroup.json"
+    },
+    "/autoScalingGroups/{autoScalingGroupId}/deregisterTargetGroup": {
+      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.deregisterTargetGroup.json"
+    },
+    "/targetGroups/{targetGroupId}": {
+      "$ref": "paths/targetGroups.{targetGroupId}.json"
+    },
+    "/targetGroups/{targetGroupId}/targets": {
+      "$ref": "paths/targetGroups.{targetGroupId}.targets.json"
+    },
+    "/targetGroups/{targetGroupId}/registerTargets": {
+      "$ref": "paths/targetGroups.{targetGroupId}.registerTargets.json"
+    },
+    "/targetGroups/{targetGroupId}/deregisterTargets": {
+      "$ref": "paths/targetGroups.{targetGroupId}.deregisterTargets.json"
+    },
+    "/vps": {
+      "$ref": "paths/vps.json"
+    },
+    "/vps/{vpsId}": {
+      "$ref": "paths/vps.{vpsId}.json"
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "X-LSW-Auth": {
+        "name": "X-LSW-Auth",
+        "type": "apiKey",
+        "in": "header",
+        "description": "API key authentication by setting `X-LSW-Auth` header."
+      }
+    }
+  }
+}

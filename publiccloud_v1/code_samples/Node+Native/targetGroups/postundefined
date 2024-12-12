@@ -25,7 +25,6 @@ const req = http.request(options, function (res) {
 });
 
 req.write(JSON.stringify({
-  id: '7e59b33d-05f3-4078-b251-c7831ae8fe14',
   name: 'string',
   protocol: 'HTTP',
   port: 0,

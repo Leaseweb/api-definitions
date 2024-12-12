@@ -1,0 +1,8 @@
+{
+  "type": "string",
+  "description": "Storage type",
+  "enum": [
+    "LOCAL",
+    "CENTRAL"
+  ]
+}

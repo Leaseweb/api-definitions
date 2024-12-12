@@ -1,0 +1,8 @@
+{
+  "name": "version",
+  "required": false,
+  "schema": {
+    "$ref": "../schemas/ipVersion.json"
+  },
+  "in": "query"
+}

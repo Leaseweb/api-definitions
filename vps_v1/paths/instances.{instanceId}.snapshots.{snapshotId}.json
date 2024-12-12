@@ -1,0 +1,16 @@
+{
+  "parameters": [
+    {
+      "$ref": "../components/parameters/instanceId.json"
+    },
+    {
+      "name": "snapshotId",
+      "required": true,
+      "schema": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "in": "path"
+    }
+  ]
+}

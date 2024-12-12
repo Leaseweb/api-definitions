@@ -1,0 +1,21 @@
+<?php
+
+$client = new http\Client;
+$request = new http\Client\Request;
+
+$body = new http\Message\Body;
+$body->append('{"reverseLookup":"string"}');
+
+$request->setRequestUrl('https://api.leaseweb.com/publicCloud/v1/%7Bresource%7D/%7BresourceId%7D/ips/%7Bip%7D');
+$request->setRequestMethod('PUT');
+$request->setBody($body);
+
+$request->setHeaders([
+  'content-type' => 'application/json',
+  'X-LSW-Auth' => 'REPLACE_KEY_VALUE'
+]);
+
+$client->enqueue($request)->send();
+$response = $client->getResponse();
+
+echo $response->getBody();

@@ -2,4 +2,4 @@ curl --request PUT \
   --url https://api.leaseweb.com/publicCloud/v1/loadBalancers/695ddd91-051f-4dd6-9120-938a927a47d0 \
   --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
   --header 'content-type: application/json' \
-  --data '{"type":"lsw.m3.large","reference":"string","contractType":"HOURLY","stickySession":{"enabled":true,"maxLifeTime":0},"balance":"roundrobin","xForwardedFor":true,"idleTimeOut":0,"targetPort":0}'
+  --data '{"type":"lsw.m3.large","reference":"string","contractType":"HOURLY","stickySession":{"enabled":true,"maxLifeTime":0},"balance":"roundrobin","xForwardedFor":true,"idleTimeOut":0}'

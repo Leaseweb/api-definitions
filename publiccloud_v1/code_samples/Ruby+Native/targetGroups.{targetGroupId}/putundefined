@@ -11,7 +11,7 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 request = Net::HTTP::Put.new(url)
 request["content-type"] = 'application/json'
 request["X-LSW-Auth"] = 'REPLACE_KEY_VALUE'
-request.body = "{\"id\":\"7e59b33d-05f3-4078-b251-c7831ae8fe14\",\"name\":\"string\",\"protocol\":\"HTTP\",\"port\":0,\"region\":\"eu-west-3\",\"healthCheck\":{\"protocol\":\"HTTP\",\"method\":\"GET\",\"uri\":\"/\",\"host\":\"string\",\"port\":0}}"
+request.body = "{\"name\":\"string\",\"port\":0,\"healthCheck\":{\"protocol\":\"HTTP\",\"method\":\"GET\",\"uri\":\"/\",\"host\":\"string\",\"port\":0}}"
 
 response = http.request(request)
 puts response.read_body

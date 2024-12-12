@@ -49,7 +49,10 @@
                   }
                 }
               ],
-              "iso": null,
+              "iso": {
+                "id": "ACRONIS_BOOT_MEDIA",
+                "name": "Acronis Boot Media"
+              },
               "marketAppId": null,
               "privateNetwork": null,
               "productType": "INSTANCE",
@@ -288,7 +291,10 @@
                   }
                 }
               ],
-              "iso": null,
+              "iso": {
+                "id": "ACRONIS_BOOT_MEDIA",
+                "name": "Acronis Boot Media"
+              },
               "marketAppId": null,
               "privateNetwork": null,
               "productType": "INSTANCE",

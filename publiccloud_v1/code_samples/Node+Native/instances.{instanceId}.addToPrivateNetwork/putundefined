@@ -4,7 +4,7 @@ const options = {
   "method": "PUT",
   "hostname": "api.leaseweb.com",
   "port": null,
-  "path": "/publicCloud/v1/instances/695ddd91-051f-4dd6-9120-938a927a47d0/addToPrivateNetwork",
+  "path": "/publicCloud/v1/instances/ace712e9-a166-47f1-9065-4af0f7e7fce1/addToPrivateNetwork",
   "headers": {
     "X-LSW-Auth": "REPLACE_KEY_VALUE"
   }

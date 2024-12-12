@@ -31,7 +31,6 @@ req.write(JSON.stringify({
   stickySession: {enabled: true, maxLifeTime: 0},
   balance: 'roundrobin',
   xForwardedFor: true,
-  idleTimeOut: 0,
-  targetPort: 0
+  idleTimeOut: 0
 }));
 req.end();

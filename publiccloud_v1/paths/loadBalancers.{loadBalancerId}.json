@@ -207,7 +207,6 @@
             "contractType": "HOURLY",
             "idleTimeOut": 60,
             "reference": "foo",
-            "targetPort": 9000,
             "type": "lsw.m3.xlarge",
             "xForwardedFor": false
           }

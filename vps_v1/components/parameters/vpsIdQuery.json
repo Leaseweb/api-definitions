@@ -1,0 +1,10 @@
+{
+  "name": "id",
+  "required": false,
+  "in": "query",
+  "schema": {
+    "type": "string"
+  },
+  "description": "Equipment Id",
+  "example": "123581321"
+}

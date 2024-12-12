@@ -5,20 +5,14 @@
       "type": "object",
       "properties": {
         "dataIn": {
-          "type": "object",
-          "title": "dataIn",
           "$ref": "./metricsProperties.json"
         },
         "dataOut": {
-          "type": "object",
-          "title": "dataOut",
           "$ref": "./metricsProperties.json"
         }
       }
     },
     "_metadata": {
-      "type": "object",
-      "title": "dataTransferredMetadata",
       "$ref": "./metricsMetadataProperties.json"
     }
   },

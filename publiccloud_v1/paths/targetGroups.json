@@ -120,10 +120,9 @@
       "content": {
         "application/json": {
           "schema": {
-            "$ref": "../components/schemas/targetGroup.json"
+            "$ref": "../components/schemas/createTargetGroupOpts.json"
           },
           "example": {
-            "id": "7e59b33d-05f3-4078-b251-c7831ae8fe14",
             "name": "Target group name",
             "protocol": "HTTP",
             "port": 80,
@@ -132,7 +131,7 @@
               "protocol": "HTTP",
               "method": "GET",
               "uri": "/",
-              "host": "my-host",
+              "host": "example.com",
               "port": 80
             }
           }
@@ -157,7 +156,7 @@
                 "protocol": "HTTP",
                 "method": "GET",
                 "uri": "/",
-                "host": "my-host",
+                "host": "example.com",
                 "port": 80
               }
             }

@@ -3,8 +3,7 @@
   "type": "object",
   "properties": {
     "protocol": {
-      "type": "string",
-      "description": "Protocol of the listener."
+      "$ref": "./protocol.json"
     },
     "port": {
       "type": "integer",

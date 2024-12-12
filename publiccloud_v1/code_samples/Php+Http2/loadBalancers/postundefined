@@ -4,7 +4,7 @@ $client = new http\Client;
 $request = new http\Client\Request;
 
 $body = new http\Message\Body;
-$body->append('{"region":"eu-west-3","type":"lsw.m3.large","reference":"string","contractType":"HOURLY","billingFrequency":1,"rootDiskStorageType":"LOCAL","targetPort":0}');
+$body->append('{"region":"eu-west-3","type":"lsw.m3.large","reference":"string","contractType":"HOURLY","contractTerm":0,"billingFrequency":1}');
 
 $request->setRequestUrl('https://api.leaseweb.com/publicCloud/v1/loadBalancers');
 $request->setRequestMethod('POST');

@@ -26,7 +26,38 @@
       "$ref": "./regionName.json"
     },
     "healthCheck": {
-      "$ref": "./healthCheck.json"
+      "title": "healthCheck",
+      "required": [
+        "protocol",
+        "method",
+        "uri",
+        "host",
+        "port"
+      ],
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "protocol": {
+          "$ref": "./protocol.json"
+        },
+        "method": {
+          "$ref": "./httpMethod.json"
+        },
+        "uri": {
+          "type": "string",
+          "description": "URI to check in the target instances",
+          "example": "/"
+        },
+        "host": {
+          "type": "string",
+          "description": "Host for the health check if any",
+          "nullable": true
+        },
+        "port": {
+          "type": "integer",
+          "description": "Port number"
+        }
+      }
     }
   },
   "required": [

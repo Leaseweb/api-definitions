@@ -5,9 +5,6 @@
       "type": "object",
       "properties": {
         "cpuMetrics": {
-          "title": "cpuMetricsMetrics",
-          "type": "object",
-          "description": "CPU usage metrics, in percentage",
           "$ref": "./metricsProperties.json"
         }
       }

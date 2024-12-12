@@ -1,5 +1,5 @@
 curl --request PUT \
-  --url https://api.leaseweb.com/publicCloud/v1/instances/695ddd91-051f-4dd6-9120-938a927a47d0 \
+  --url https://api.leaseweb.com/publicCloud/v1/instances/ace712e9-a166-47f1-9065-4af0f7e7fce1 \
   --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
   --header 'content-type: application/json' \
   --data '{"type":"lsw.m3.large","reference":"string","contractType":"HOURLY","contractTerm":0,"billingFrequency":1,"rootDiskSize":5}'

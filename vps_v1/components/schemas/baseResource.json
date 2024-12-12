@@ -1,0 +1,8 @@
+{
+  "type": "string",
+  "description": "Resource type",
+  "enum": [
+    "instances",
+    "vps"
+  ]
+}

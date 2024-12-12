@@ -1,0 +1,17 @@
+import http.client
+
+conn = http.client.HTTPSConnection("api.leaseweb.com")
+
+payload = "{\"password\":\"string\"}"
+
+headers = {
+    'content-type': "application/json",
+    'X-LSW-Auth': "REPLACE_KEY_VALUE"
+    }
+
+conn.request("PUT", "/publicCloud/v1/%7Bresource%7D/%7BresourceId%7D/credentials/%7Btype%7D/root", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

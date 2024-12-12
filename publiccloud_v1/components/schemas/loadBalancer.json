@@ -8,7 +8,12 @@
     "resources",
     "reference",
     "state",
-    "startedAt"
+    "startedAt",
+    "contract",
+    "region",
+    "configuration",
+    "privateNetwork",
+    "autoScalingGroup"
   ],
   "properties": {
     "id": {
@@ -35,6 +40,21 @@
       "description": "Date and time when the load balancer was started for the first time, right after launching it",
       "format": "date-time",
       "nullable": true
+    },
+    "region": {
+      "$ref": "./regionName.json"
+    },
+    "configuration": {
+      "$ref": "./loadBalancerConfiguration.json"
+    },
+    "autoScalingGroup": {
+      "$ref": "./autoScalingGroup.json"
+    },
+    "privateNetwork": {
+      "$ref": "./privateNetwork.json"
+    },
+    "contract": {
+      "$ref": "./contract.json"
     }
   }
 }

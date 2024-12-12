@@ -1,0 +1,73 @@
+{
+  "parameters": [
+    {
+      "$ref": "../components/parameters/baseResource.json"
+    },
+    {
+      "$ref": "../components/parameters/baseResourceId.json"
+    }
+  ],
+  "post": {
+    "description": "Resource must have ISO attached, otherwise, it will return a validation error",
+    "operationId": "detachIso",
+    "responses": {
+      "202": {
+        "description": "Accepted."
+      },
+      "400": {
+        "$ref": "../components/responses/400.json"
+      },
+      "401": {
+        "$ref": "../components/responses/401.json"
+      },
+      "403": {
+        "$ref": "../components/responses/403.json"
+      },
+      "404": {
+        "$ref": "../components/responses/404.json"
+      },
+      "500": {
+        "$ref": "../components/responses/500.json"
+      },
+      "503": {
+        "$ref": "../components/responses/503.json"
+      }
+    },
+    "summary": "Detach ISO from a specific resource (Instance or Vps)",
+    "tags": [
+      "ISOs"
+    ],
+    "x-codeSamples": [
+      {
+        "lang": "Shell + Curl",
+        "source": {
+          "$ref": "../code_samples/Shell+Curl/{resource}.{resourceId}.detachIso/postundefined"
+        }
+      },
+      {
+        "lang": "Python + Python3",
+        "source": {
+          "$ref": "../code_samples/Python+Python3/{resource}.{resourceId}.detachIso/postundefined"
+        }
+      },
+      {
+        "lang": "Php + Http2",
+        "source": {
+          "$ref": "../code_samples/Php+Http2/{resource}.{resourceId}.detachIso/postundefined"
+        }
+      },
+      {
+        "lang": "Ruby + Native",
+        "source": {
+          "$ref": "../code_samples/Ruby+Native/{resource}.{resourceId}.detachIso/postundefined"
+        }
+      },
+      {
+        "lang": "Node + Native",
+        "source": {
+          "$ref": "../code_samples/Node+Native/{resource}.{resourceId}.detachIso/postundefined"
+        }
+      }
+    ]
+  }
+}

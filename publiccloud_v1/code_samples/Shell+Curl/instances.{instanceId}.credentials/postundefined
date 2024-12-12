@@ -1,5 +1,0 @@
-curl --request POST \
-  --url https://api.leaseweb.com/publicCloud/v1/instances/695ddd91-051f-4dd6-9120-938a927a47d0/credentials \
-  --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
-  --header 'content-type: application/json' \
-  --data '{"type":"OPERATING_SYSTEM","username":"string","password":"string"}'

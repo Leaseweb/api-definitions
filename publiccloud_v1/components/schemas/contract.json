@@ -1,45 +1,21 @@
 {
-  "required": [
-    "type",
-    "term",
-    "billingFrequency",
-    "endsAt",
-    "renewalsAt",
-    "createdAt",
-    "state"
-  ],
-  "title": "contract",
-  "type": "object",
-  "properties": {
-    "billingFrequency": {
-      "$ref": "./billingFrequency.json"
+  "allOf": [
+    {
+      "$ref": "./baseContract.json"
     },
-    "term": {
-      "$ref": "./contractTerm.json"
-    },
-    "type": {
-      "$ref": "./contractType.json"
-    },
-    "endsAt": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2023-11-30T16:31:28+00:00",
-      "nullable": true
-    },
-    "renewalsAt": {
-      "type": "string",
-      "description": "Date when the contract will be automatically renewed",
-      "format": "date-time",
-      "example": "2023-11-30T16:31:28+00:00"
-    },
-    "createdAt": {
-      "type": "string",
-      "description": "Date when the contract was created",
-      "format": "date-time",
-      "example": "2023-11-30T16:31:28+00:00"
-    },
-    "state": {
-      "$ref": "./contractState.json"
+    {
+      "type": "object",
+      "required": [
+        "renewalsAt"
+      ],
+      "properties": {
+        "renewalsAt": {
+          "type": "string",
+          "description": "Date when the contract will be automatically renewed",
+          "format": "date-time",
+          "example": "2023-11-30T16:31:28+00:00"
+        }
+      }
     }
-  }
+  ]
 }

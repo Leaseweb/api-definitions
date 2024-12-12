@@ -1,0 +1,22 @@
+{
+  "allOf": [
+    {
+      "$ref": "./vpsBase.json"
+    },
+    {
+      "type": "object",
+      "title": "vps",
+      "required": [
+        "ips"
+      ],
+      "properties": {
+        "ips": {
+          "type": "array",
+          "items": {
+            "$ref": "./ip.json"
+          }
+        }
+      }
+    }
+  ]
+}

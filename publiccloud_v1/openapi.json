@@ -37,68 +37,55 @@
       "x-traitTag": true
     },
     {
-      "description": "",
       "name": "Regions"
     },
     {
-      "description": "",
       "name": "Instance Types"
     },
     {
-      "description": "",
       "name": "Instances"
     },
     {
-      "description": "",
       "name": "Power"
     },
     {
-      "description": "",
       "name": "Credentials"
     },
     {
-      "description": "",
       "name": "Expenses"
     },
     {
-      "description": "",
       "name": "ISOs"
     },
     {
-      "description": "",
       "name": "Images"
     },
     {
-      "description": "",
       "name": "Target Groups"
     },
     {
-      "description": "",
       "name": "Marketplace Apps"
     },
     {
-      "description": "",
       "name": "Metrics"
     },
     {
-      "description": "",
       "name": "Snapshots"
     },
     {
-      "description": "",
       "name": "IPs"
     },
     {
-      "description": "",
       "name": "Private Networks"
     },
     {
-      "description": "",
       "name": "Load Balancer"
     },
     {
-      "description": "",
       "name": "Auto Scaling Groups"
+    },
+    {
+      "name": "Reinstall"
     }
   ],
   "paths": {
@@ -117,14 +104,14 @@
     "/instances/{instanceId}/cancelTermination": {
       "$ref": "paths/instances.{instanceId}.cancelTermination.json"
     },
-    "/instances/{instanceId}/start": {
-      "$ref": "paths/instances.{instanceId}.start.json"
+    "/{resource}/{resourceId}/start": {
+      "$ref": "paths/{resource}.{resourceId}.start.json"
     },
-    "/instances/{instanceId}/stop": {
-      "$ref": "paths/instances.{instanceId}.stop.json"
+    "/{resource}/{resourceId}/stop": {
+      "$ref": "paths/{resource}.{resourceId}.stop.json"
     },
-    "/instances/{instanceId}/reboot": {
-      "$ref": "paths/instances.{instanceId}.reboot.json"
+    "/{resource}/{resourceId}/reboot": {
+      "$ref": "paths/{resource}.{resourceId}.reboot.json"
     },
     "/instances/{instanceId}/console": {
       "$ref": "paths/instances.{instanceId}.console.json"
@@ -132,17 +119,17 @@
     "/instances/{instanceId}/instanceTypesUpdate": {
       "$ref": "paths/instances.{instanceId}.instanceTypesUpdate.json"
     },
-    "/instances/{instanceId}/credentials": {
-      "$ref": "paths/instances.{instanceId}.credentials.json"
+    "/{resource}/{resourceId}/credentials": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.json"
     },
-    "/instances/{instanceId}/credentials/{type}": {
-      "$ref": "paths/instances.{instanceId}.credentials.{type}.json"
+    "/{resource}/{resourceId}/credentials/{type}": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.json"
     },
-    "/instances/{instanceId}/credentials/{type}/{username}": {
-      "$ref": "paths/instances.{instanceId}.credentials.{type}.{username}.json"
+    "/{resource}/{resourceId}/credentials/{type}/{username}": {
+      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.{username}.json"
     },
-    "/instances/{instanceId}/resetPassword": {
-      "$ref": "paths/instances.{instanceId}.resetPassword.json"
+    "/{resource}/{resourceId}/resetPassword": {
+      "$ref": "paths/{resource}.{resourceId}.resetPassword.json"
     },
     "/equipments/{equipmentId}/expenses": {
       "$ref": "paths/equipments.{equipmentId}.expenses.json"
@@ -159,17 +146,17 @@
     "/marketApps": {
       "$ref": "paths/marketApps.json"
     },
-    "/instances/{instanceId}/attachIso": {
-      "$ref": "paths/instances.{instanceId}.attachIso.json"
+    "/{resource}/{resourceId}/attachIso": {
+      "$ref": "paths/{resource}.{resourceId}.attachIso.json"
     },
-    "/instances/{instanceId}/detachIso": {
-      "$ref": "paths/instances.{instanceId}.detachIso.json"
+    "/{resource}/{resourceId}/detachIso": {
+      "$ref": "paths/{resource}.{resourceId}.detachIso.json"
     },
-    "/instances/{instanceId}/reinstall/images": {
-      "$ref": "paths/instances.{instanceId}.reinstall.images.json"
+    "/{resource}/{resourceId}/reinstall/images": {
+      "$ref": "paths/{resource}.{resourceId}.reinstall.images.json"
     },
-    "/instances/{instanceId}/reinstall": {
-      "$ref": "paths/instances.{instanceId}.reinstall.json"
+    "/{resource}/{resourceId}/reinstall": {
+      "$ref": "paths/{resource}.{resourceId}.reinstall.json"
     },
     "/loadBalancers": {
       "$ref": "paths/loadBalancers.json"
@@ -183,20 +170,20 @@
     "/loadBalancers/{loadBalancerId}/listeners/{listenerId}": {
       "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.{listenerId}.json"
     },
-    "/instances/{instanceId}/ips": {
-      "$ref": "paths/instances.{instanceId}.ips.json"
+    "/{resource}/{resourceId}/ips": {
+      "$ref": "paths/{resource}.{resourceId}.ips.json"
     },
-    "/instances/{instanceId}/ips/{ip}": {
-      "$ref": "paths/instances.{instanceId}.ips.{ip}.json"
+    "/{resource}/{resourceId}/ips/{ip}": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.json"
     },
-    "/instances/{instanceId}/ips/{ip}/null": {
-      "$ref": "paths/instances.{instanceId}.ips.{ip}.null.json"
+    "/{resource}/{resourceId}/ips/{ip}/null": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.null.json"
     },
-    "/instances/{instanceId}/ips/{ip}/unnull": {
-      "$ref": "paths/instances.{instanceId}.ips.{ip}.unnull.json"
+    "/{resource}/{resourceId}/ips/{ip}/unnull": {
+      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.unnull.json"
     },
-    "/instances/{instanceId}/metrics/datatraffic": {
-      "$ref": "paths/instances.{instanceId}.metrics.datatraffic.json"
+    "/{resource}/{resourceId}/metrics/datatraffic": {
+      "$ref": "paths/{resource}.{resourceId}.metrics.datatraffic.json"
     },
     "/instances/{instanceId}/metrics/cpu": {
       "$ref": "paths/instances.{instanceId}.metrics.cpu.json"
@@ -266,6 +253,9 @@
     },
     "/targetGroups/{targetGroupId}/deregisterTargets": {
       "$ref": "paths/targetGroups.{targetGroupId}.deregisterTargets.json"
+    },
+    "/vps/{vpsId}": {
+      "$ref": "paths/vps.{vpsId}.json"
     }
   },
   "components": {

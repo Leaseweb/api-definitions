@@ -1,0 +1,15 @@
+{
+  "name": "state",
+  "required": false,
+  "in": "query",
+  "schema": {
+    "type": "string",
+    "description": "The current state",
+    "enum": [
+      "RUNNING",
+      "STARTING",
+      "STOPPED",
+      "STOPPING"
+    ]
+  }
+}

@@ -127,7 +127,7 @@
                   "storageSize": null,
                   "state": "READY",
                   "stateReason": null,
-                  "region": null,
+                  "region": "eu-west-3",
                   "createdAt": null,
                   "updatedAt": null,
                   "custom": false,
@@ -141,7 +141,7 @@
                   "flavour": "ubuntu",
                   "architecture": "x86_64",
                   "marketApps": [
-                    "LOADBALANCER"
+                    "PLESK_WEB_ADMIN"
                   ],
                   "storageTypes": [
                     "LOCAL",
@@ -150,7 +150,7 @@
                   "storageSize": null,
                   "state": "READY",
                   "stateReason": null,
-                  "region": null,
+                  "region": "eu-west-3",
                   "createdAt": null,
                   "updatedAt": null,
                   "custom": false,
@@ -171,7 +171,7 @@
                   "storageSize": null,
                   "state": "READY",
                   "stateReason": null,
-                  "region": null,
+                  "region": "eu-west-3",
                   "createdAt": null,
                   "updatedAt": null,
                   "custom": false,
@@ -220,7 +220,7 @@
                   "minDiskSize": null
                 },
                 {
-                  "id": "396a3299-1795-464b-aa10-e1f179db1926",
+                  "id": "ace712e9-a166-47f1-9065-4af0f7e7fce1",
                   "name": "Custom image - 03",
                   "flavour": "ubuntu",
                   "family": "linux",
@@ -242,7 +242,7 @@
                 }
               ],
               "_metadata": {
-                "totalCount": 12,
+                "totalCount": 6,
                 "limit": 6,
                 "offset": 0
               }
@@ -334,10 +334,10 @@
               "custom": true,
               "family": "linux",
               "flavour": "ubuntu",
-              "id": "396a3299-1795-464b-aa10-e1f179db1926",
+              "id": "ace712e9-a166-47f1-9065-4af0f7e7fce1",
               "marketApps": [],
               "minDiskSize": null,
-              "name": "Custom image",
+              "name": "Custom image - 03",
               "region": "eu-west-3",
               "state": "READY",
               "stateReason": null,

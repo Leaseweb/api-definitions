@@ -1,0 +1,10 @@
+{
+  "parameters": [
+    {
+      "$ref": "../components/parameters/loadBalancerId.json"
+    },
+    {
+      "$ref": "../components/parameters/listenerId.json"
+    }
+  ]
+}

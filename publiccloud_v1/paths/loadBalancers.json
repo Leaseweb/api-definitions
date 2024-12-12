@@ -11,11 +11,10 @@
           },
           "example": {
             "billingFrequency": 1,
+            "contractTerm": 0,
             "contractType": "HOURLY",
             "reference": "my-loadbalancer-1",
             "region": "eu-west-3",
-            "rootDiskStorageType": "CENTRAL",
-            "targetPort": 443,
             "type": "lsw.m3.large"
           }
         }
@@ -303,8 +302,7 @@
                       "nullRouted": false,
                       "reverseLookup": null,
                       "networkType": "PUBLIC",
-                      "mainIp": false,
-                      "ddos": null
+                      "mainIp": false
                     }
                   ],
                   "startedAt": "2024-04-09T15:11:37+00:00",

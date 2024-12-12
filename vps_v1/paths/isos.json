@@ -1,0 +1,10 @@
+{
+  "parameters": [
+    {
+      "$ref": "../components/parameters/limit.json"
+    },
+    {
+      "$ref": "../components/parameters/offset.json"
+    }
+  ]
+}
