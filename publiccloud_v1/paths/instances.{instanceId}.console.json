@@ -6,7 +6,7 @@
   ],
   "get": {
     "description": "Get console access to the instance",
-    "operationId": "getConsoleAccessToInstance",
+    "operationId": "getConsoleAccess",
     "responses": {
       "200": {
         "description": "OK.",
@@ -16,7 +16,7 @@
               "url": "https://public-cloud.leaseweb.com/resource/noVNC/vnc.html?autoconnect=true&port=8080&token=dvoPyDxbBl8LC9OsXI55CmAUmUA50lY19b0/v/7jrA6VkrdflVWw8S2XuxDZrBaaSo4XdBAYmpfqC0kUr2aOVHjMlGFb6movdnKNxvMOEmC0spwU9XbdZJrWXzGicCLT4X4GMxgN13nn1oDQb8k9ag2rMMxENyiPZ3bbV1iGuL4cWLEMad8hHFXjJ7P2MvbnpiasXK5wKuHadrR76778ZM22xxzvjarg9S6bAWziH1u3VdKIQyJMIrDmAdjYRqL1IHqrN+uLrY6WPzv+s51lnNYd0zeQtB7YWBZup8VDcZSt5C0GrYnZx3Vh4fXWOOsFlWZgdEGKf9oM9y9RX2G/jLlVeVv4LmVCN02GRr7SAfyx8WcuWGXS7WsxpXTzdxWEm9EMZDrPQhFiZKo20PXRdgT6KbdnqCI/j8z5iPAKGO3YI5BcK5sUdhHgFUMNgJUw/qhz71/xivIP8UKrWVgZMRWXmt6hNWIeHLqrdZ0n5m9It4Os8UaKgeBvwlFTpzNTUWxvoI0+2sa8GAmW3RCe9mfK3xvW/iy1MZ651cALLVmoj6imZl7K7P33iQ=="
             },
             "schema": {
-              "$ref": "../components/schemas/getConsoleAccessToInstanceResult.json"
+              "$ref": "../components/schemas/getConsoleAccessResult.json"
             }
           }
         }

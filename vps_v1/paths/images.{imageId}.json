@@ -1,7 +1,0 @@
-{
-  "parameters": [
-    {
-      "$ref": "../components/parameters/imageId.json"
-    }
-  ]
-}

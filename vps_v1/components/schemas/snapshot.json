@@ -1,0 +1,24 @@
+{
+  "title": "snapshot",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "CREATING"
+      ]
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -7,7 +7,9 @@
       "type": "object",
       "title": "vps",
       "required": [
-        "ips"
+        "ips",
+        "contract",
+        "resources"
       ],
       "properties": {
         "iso": {
@@ -18,6 +20,12 @@
           "items": {
             "$ref": "./ipDetails.json"
           }
+        },
+        "resources": {
+          "$ref": "./baseResources.json"
+        },
+        "contract": {
+          "$ref": "./vpsContract.json"
         }
       }
     }

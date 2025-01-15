@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "nullroutes": {
+      "type": "array",
+      "items": {
+        "$ref": "./nullRoutedIP.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "required": [
+    "nullroutes",
+    "_metadata"
+  ],
+  "type": "object"
+}

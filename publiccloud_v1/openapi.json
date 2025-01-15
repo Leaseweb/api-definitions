@@ -104,14 +104,23 @@
     "/instances/{instanceId}/cancelTermination": {
       "$ref": "paths/instances.{instanceId}.cancelTermination.json"
     },
-    "/{resource}/{resourceId}/start": {
-      "$ref": "paths/{resource}.{resourceId}.start.json"
+    "/instances/{instanceId}/start": {
+      "$ref": "paths/instances.{instanceId}.start.json"
     },
-    "/{resource}/{resourceId}/stop": {
-      "$ref": "paths/{resource}.{resourceId}.stop.json"
+    "/loadBalancers/{loadBalancerId}/start": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.start.json"
     },
-    "/{resource}/{resourceId}/reboot": {
-      "$ref": "paths/{resource}.{resourceId}.reboot.json"
+    "/instances/{instanceId}/stop": {
+      "$ref": "paths/instances.{instanceId}.stop.json"
+    },
+    "/loadBalancers/{loadBalancerId}/stop": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.stop.json"
+    },
+    "/instances/{instanceId}/reboot": {
+      "$ref": "paths/instances.{instanceId}.reboot.json"
+    },
+    "/loadBalancers/{loadBalancerId}/reboot": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.reboot.json"
     },
     "/instances/{instanceId}/console": {
       "$ref": "paths/instances.{instanceId}.console.json"
@@ -119,17 +128,17 @@
     "/instances/{instanceId}/instanceTypesUpdate": {
       "$ref": "paths/instances.{instanceId}.instanceTypesUpdate.json"
     },
-    "/{resource}/{resourceId}/credentials": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.json"
+    "/instances/{instanceId}/credentials": {
+      "$ref": "paths/instances.{instanceId}.credentials.json"
     },
-    "/{resource}/{resourceId}/credentials/{type}": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.json"
+    "/instances/{instanceId}/credentials/{type}": {
+      "$ref": "paths/instances.{instanceId}.credentials.{type}.json"
     },
-    "/{resource}/{resourceId}/credentials/{type}/{username}": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.{username}.json"
+    "/instances/{instanceId}/credentials/{type}/{username}": {
+      "$ref": "paths/instances.{instanceId}.credentials.{type}.{username}.json"
     },
-    "/{resource}/{resourceId}/resetPassword": {
-      "$ref": "paths/{resource}.{resourceId}.resetPassword.json"
+    "/instances/{instanceId}/resetPassword": {
+      "$ref": "paths/instances.{instanceId}.resetPassword.json"
     },
     "/equipments/{equipmentId}/expenses": {
       "$ref": "paths/equipments.{equipmentId}.expenses.json"
@@ -146,17 +155,17 @@
     "/marketApps": {
       "$ref": "paths/marketApps.json"
     },
-    "/{resource}/{resourceId}/attachIso": {
-      "$ref": "paths/{resource}.{resourceId}.attachIso.json"
+    "/instances/{instanceId}/attachIso": {
+      "$ref": "paths/instances.{instanceId}.attachIso.json"
     },
-    "/{resource}/{resourceId}/detachIso": {
-      "$ref": "paths/{resource}.{resourceId}.detachIso.json"
+    "/instances/{instanceId}/detachIso": {
+      "$ref": "paths/instances.{instanceId}.detachIso.json"
     },
-    "/{resource}/{resourceId}/reinstall/images": {
-      "$ref": "paths/{resource}.{resourceId}.reinstall.images.json"
+    "/instances/{instanceId}/reinstall/images": {
+      "$ref": "paths/instances.{instanceId}.reinstall.images.json"
     },
-    "/{resource}/{resourceId}/reinstall": {
-      "$ref": "paths/{resource}.{resourceId}.reinstall.json"
+    "/instances/{instanceId}/reinstall": {
+      "$ref": "paths/instances.{instanceId}.reinstall.json"
     },
     "/loadBalancers": {
       "$ref": "paths/loadBalancers.json"
@@ -170,20 +179,35 @@
     "/loadBalancers/{loadBalancerId}/listeners/{listenerId}": {
       "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.{listenerId}.json"
     },
-    "/{resource}/{resourceId}/ips": {
-      "$ref": "paths/{resource}.{resourceId}.ips.json"
+    "/instances/{instanceId}/ips": {
+      "$ref": "paths/instances.{instanceId}.ips.json"
     },
-    "/{resource}/{resourceId}/ips/{ip}": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.json"
+    "/loadBalancers/{loadBalancerId}/ips": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.ips.json"
     },
-    "/{resource}/{resourceId}/ips/{ip}/null": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.null.json"
+    "/instances/{instanceId}/ips/{ip}": {
+      "$ref": "paths/instances.{instanceId}.ips.{ip}.json"
     },
-    "/{resource}/{resourceId}/ips/{ip}/unnull": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.unnull.json"
+    "/loadBalancers/{loadBalancerId}/ips/{ip}": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.ips.{ip}.json"
     },
-    "/{resource}/{resourceId}/metrics/datatraffic": {
-      "$ref": "paths/{resource}.{resourceId}.metrics.datatraffic.json"
+    "/instances/{instanceId}/ips/{ip}/null": {
+      "$ref": "paths/instances.{instanceId}.ips.{ip}.null.json"
+    },
+    "/loadBalancers/{loadBalancerId}/ips/{ip}/null": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.ips.{ip}.null.json"
+    },
+    "/instances/{instanceId}/ips/{ip}/unnull": {
+      "$ref": "paths/instances.{instanceId}.ips.{ip}.unnull.json"
+    },
+    "/loadBalancers/{loadBalancerId}/ips/{ip}/unnull": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.ips.{ip}.unnull.json"
+    },
+    "/instances/{instanceId}/metrics/datatraffic": {
+      "$ref": "paths/instances.{instanceId}.metrics.datatraffic.json"
+    },
+    "/loadBalancers/{loadBalancerId}/metrics/datatraffic": {
+      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.datatraffic.json"
     },
     "/instances/{instanceId}/metrics/cpu": {
       "$ref": "paths/instances.{instanceId}.metrics.cpu.json"
@@ -253,9 +277,6 @@
     },
     "/targetGroups/{targetGroupId}/deregisterTargets": {
       "$ref": "paths/targetGroups.{targetGroupId}.deregisterTargets.json"
-    },
-    "/vps/{vpsId}": {
-      "$ref": "paths/vps.{vpsId}.json"
     }
   },
   "components": {

@@ -3,26 +3,26 @@
   "title": "trafficMetricSummary",
   "properties": {
     "average": {
-      "type": "string",
-      "description": "Average incoming traffic based on the amount of grouped data points, in human-readable format (KB, MB, GB)",
-      "example": "855.28 KB"
+      "type": "number",
+      "description": "Average incoming traffic based on the amount of grouped data points, in bytes",
+      "example": 340733979
     },
     "expected": {
-      "type": "string",
-      "description": "Expected incoming traffic given the average times the amount of days between the `from` and `to` dates, in human-readable format (KB, MB, GB)",
-      "example": "25.66 MB"
+      "type": "number",
+      "description": "Expected incoming traffic given the average times the amount of days between the `from` and `to` dates, in bytes",
+      "example": 10222019370
     },
     "total": {
-      "type": "string",
-      "description": "Total incoming traffic, in human-readable format (KB, MB, GB)",
-      "example": "1.71 MB"
+      "type": "number",
+      "description": "Total incoming traffic, in bytes",
+      "example": 1022201937
     },
     "peak": {
       "type": "object",
       "title": "peak",
       "properties": {
         "value": {
-          "type": "string",
+          "type": "number",
           "description": "The highest amount of incoming traffic given the provided aggregation and granularity"
         },
         "timestamp": {

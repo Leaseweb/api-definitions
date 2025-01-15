@@ -1,3 +1,0 @@
-curl --request POST \
-  --url https://api.leaseweb.com/publicCloud/v1/%7Bresource%7D/%7BresourceId%7D/reboot \
-  --header 'X-LSW-Auth: REPLACE_KEY_VALUE'

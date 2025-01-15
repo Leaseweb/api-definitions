@@ -1,0 +1,19 @@
+{
+  "description": "Object containing a list of reverse lookup values set for ips in a specific range",
+  "properties": {
+    "reverseLookups": {
+      "type": "array",
+      "items": {
+        "$ref": "./reverseLookup.json"
+      }
+    },
+    "_metadata": {
+      "$ref": "./_metadata.json"
+    }
+  },
+  "required": [
+    "reverseLookups",
+    "_metadata"
+  ],
+  "type": "object"
+}

@@ -1,5 +1,5 @@
 curl --request PUT \
-  --url https://api.leaseweb.com/ipMgmt/v2/ips/%7Bip%7D/reverseLookup \
+  --url https://api.leaseweb.com/ipMgmt/v2/ips/192.0.2.1/reverseLookup \
   --header 'X-LSW-Auth: REPLACE_KEY_VALUE' \
   --header 'content-type: application/json' \
   --data '{"reverseLookups":[{"ip":"string","reverseLookup":"string"}]}'

@@ -4,7 +4,6 @@
   "required": [
     "id",
     "pack",
-    "resources",
     "region",
     "datacenter",
     "reference",
@@ -12,8 +11,7 @@
     "state",
     "hasPublicIpV4",
     "rootDiskSize",
-    "startedAt",
-    "contract"
+    "startedAt"
   ],
   "properties": {
     "id": {
@@ -24,9 +22,6 @@
       "type": "string",
       "description": "Vps package",
       "$ref": "./vpsPackType.json"
-    },
-    "resources": {
-      "$ref": "./baseResources.json"
     },
     "region": {
       "$ref": "./regionName.json"
@@ -65,9 +60,6 @@
       "description": "Date and time when the VPS was started for the first time, right after launching it",
       "format": "date-time",
       "nullable": true
-    },
-    "contract": {
-      "$ref": "./vpsContract.json"
     }
   }
 }

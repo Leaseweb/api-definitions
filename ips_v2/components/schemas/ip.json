@@ -1,19 +1,30 @@
 {
+  "title": "ip",
   "type": "object",
-  "default": {},
+  "required": [
+    "ip",
+    "version",
+    "type",
+    "prefixLength",
+    "primary",
+    "reverseLookup",
+    "nullRouted",
+    "nullLevel",
+    "unnullingAllowed",
+    "equipmentId",
+    "assignedContract",
+    "subnet"
+  ],
   "properties": {
     "ip": {
       "type": "string",
       "description": "IP address"
     },
     "version": {
-      "type": "integer",
-      "description": "Protocol version (4 or 6)",
-      "default": 0
+      "$ref": "./protocolVersion.json"
     },
     "type": {
-      "type": "string",
-      "description": "Type of the IP (NORMAL_IP, NETWORK, BROADCAST, GATEWAY, ROUTER1, ROUTER2, IPMI)"
+      "$ref": "./ipType.json"
     },
     "prefixLength": {
       "type": "integer",
@@ -26,7 +37,8 @@
     },
     "reverseLookup": {
       "type": "string",
-      "description": "Reverse lookup set for the IP. This only applies to IPv4. For IPv6 see [GET /ips/{ip}/reverseLookup](#operation/get/ips/{ip}/reverseLookup)."
+      "description": "Reverse lookup set for the IP. This only applies to IPv4. For IPv6 see [GET /ips/{ip}/reverseLookup](#operation/get/ips/{ip}/reverseLookup).",
+      "nullable": true
     },
     "nullRouted": {
       "type": "boolean",
@@ -48,20 +60,18 @@
       "description": "ID of the equipment using the IP"
     },
     "assignedContract": {
-      "type": "object",
-      "description": "Object containing information about the contract connected to the IP",
-      "default": {},
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "ID of the contract connected to the IP"
-        }
-      }
+      "$ref": "./assignedContract.json"
     },
     "subnet": {
+      "title": "subnet",
       "type": "object",
       "description": "Object containing information about the network and gateway",
-      "default": {},
+      "required": [
+        "id",
+        "networkIp",
+        "prefixLength",
+        "gateway"
+      ],
       "properties": {
         "id": {
           "type": "string",

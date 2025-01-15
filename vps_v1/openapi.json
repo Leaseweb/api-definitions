@@ -3,7 +3,7 @@
   "info": {
     "title": "LeaseWeb API for launching and managing VPS",
     "version": "v1",
-    "description": "The base URL for this API is: **https://api.leaseweb.com/publicCloud/v1/**\n\nThis API provides ways to launch and manage VPS.\n\n<div class=\"badge\">BETA</div> This API is in BETA. Documentation might be incorrect or incomplete. Functionality might change with the final release.\n",
+    "description": "> The base URL for this API is: **https://api.leaseweb.com/publicCloud/v1/**\n\nThis API provides ways to launch and manage VPS.\n\n<div class=\"badge\">BETA</div> This API is in BETA. Documentation might be incorrect or incomplete. Functionality might change with the final release.>",
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
@@ -49,7 +49,7 @@
       "name": "Metrics"
     },
     {
-      "name": "VPS"
+      "name": "Snapshots"
     },
     {
       "name": "IPs"
@@ -59,149 +59,62 @@
     }
   ],
   "paths": {
-    "/regions": {
-      "$ref": "paths/regions.json"
+    "/vps/{vpsId}/start": {
+      "$ref": "paths/vps.{vpsId}.start.json"
     },
-    "/instances/{instanceId}": {
-      "$ref": "paths/instances.{instanceId}.json"
+    "/vps/{vpsId}/stop": {
+      "$ref": "paths/vps.{vpsId}.stop.json"
     },
-    "/instances/{instanceId}/cancelTermination": {
-      "$ref": "paths/instances.{instanceId}.cancelTermination.json"
+    "/vps/{vpsId}/reboot": {
+      "$ref": "paths/vps.{vpsId}.reboot.json"
     },
-    "/{resource}/{resourceId}/start": {
-      "$ref": "paths/{resource}.{resourceId}.start.json"
+    "/vps/{vpsId}/console": {
+      "$ref": "paths/vps.{vpsId}.console.json"
     },
-    "/{resource}/{resourceId}/stop": {
-      "$ref": "paths/{resource}.{resourceId}.stop.json"
+    "/vps/{vpsId}/credentials": {
+      "$ref": "paths/vps.{vpsId}.credentials.json"
     },
-    "/{resource}/{resourceId}/reboot": {
-      "$ref": "paths/{resource}.{resourceId}.reboot.json"
+    "/vps/{vpsId}/credentials/{type}": {
+      "$ref": "paths/vps.{vpsId}.credentials.{type}.json"
     },
-    "/instances/{instanceId}/console": {
-      "$ref": "paths/instances.{instanceId}.console.json"
+    "/vps/{vpsId}/credentials/{type}/{username}": {
+      "$ref": "paths/vps.{vpsId}.credentials.{type}.{username}.json"
     },
-    "/instances/{instanceId}/instanceTypesUpdate": {
-      "$ref": "paths/instances.{instanceId}.instanceTypesUpdate.json"
+    "/vps/{vpsId}/resetPassword": {
+      "$ref": "paths/vps.{vpsId}.resetPassword.json"
     },
-    "/{resource}/{resourceId}/credentials": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.json"
+    "/vps/{vpsId}/attachIso": {
+      "$ref": "paths/vps.{vpsId}.attachIso.json"
     },
-    "/{resource}/{resourceId}/credentials/{type}": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.json"
+    "/vps/{vpsId}/detachIso": {
+      "$ref": "paths/vps.{vpsId}.detachIso.json"
     },
-    "/{resource}/{resourceId}/credentials/{type}/{username}": {
-      "$ref": "paths/{resource}.{resourceId}.credentials.{type}.{username}.json"
+    "/vps/{vpsId}/reinstall/images": {
+      "$ref": "paths/vps.{vpsId}.reinstall.images.json"
     },
-    "/{resource}/{resourceId}/resetPassword": {
-      "$ref": "paths/{resource}.{resourceId}.resetPassword.json"
+    "/vps/{vpsId}/reinstall": {
+      "$ref": "paths/vps.{vpsId}.reinstall.json"
     },
-    "/equipments/{equipmentId}/expenses": {
-      "$ref": "paths/equipments.{equipmentId}.expenses.json"
+    "/vps/{vpsId}/ips": {
+      "$ref": "paths/vps.{vpsId}.ips.json"
     },
-    "/isos": {
-      "$ref": "paths/isos.json"
+    "/vps/{vpsId}/ips/{ip}": {
+      "$ref": "paths/vps.{vpsId}.ips.{ip}.json"
     },
-    "/images/{imageId}": {
-      "$ref": "paths/images.{imageId}.json"
+    "/vps/{vpsId}/ips/{ip}/null": {
+      "$ref": "paths/vps.{vpsId}.ips.{ip}.null.json"
     },
-    "/{resource}/{resourceId}/attachIso": {
-      "$ref": "paths/{resource}.{resourceId}.attachIso.json"
+    "/vps/{vpsId}/ips/{ip}/unnull": {
+      "$ref": "paths/vps.{vpsId}.ips.{ip}.unnull.json"
     },
-    "/{resource}/{resourceId}/detachIso": {
-      "$ref": "paths/{resource}.{resourceId}.detachIso.json"
+    "/vps/{vpsId}/metrics/datatraffic": {
+      "$ref": "paths/vps.{vpsId}.metrics.datatraffic.json"
     },
-    "/{resource}/{resourceId}/reinstall/images": {
-      "$ref": "paths/{resource}.{resourceId}.reinstall.images.json"
+    "/vps/{vpsId}/snapshots": {
+      "$ref": "paths/vps.{vpsId}.snapshots.json"
     },
-    "/{resource}/{resourceId}/reinstall": {
-      "$ref": "paths/{resource}.{resourceId}.reinstall.json"
-    },
-    "/loadBalancers/{loadBalancerId}": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.json"
-    },
-    "/loadBalancers/{loadBalancerId}/listeners": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.json"
-    },
-    "/loadBalancers/{loadBalancerId}/listeners/{listenerId}": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.listeners.{listenerId}.json"
-    },
-    "/{resource}/{resourceId}/ips": {
-      "$ref": "paths/{resource}.{resourceId}.ips.json"
-    },
-    "/{resource}/{resourceId}/ips/{ip}": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.json"
-    },
-    "/{resource}/{resourceId}/ips/{ip}/null": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.null.json"
-    },
-    "/{resource}/{resourceId}/ips/{ip}/unnull": {
-      "$ref": "paths/{resource}.{resourceId}.ips.{ip}.unnull.json"
-    },
-    "/{resource}/{resourceId}/metrics/datatraffic": {
-      "$ref": "paths/{resource}.{resourceId}.metrics.datatraffic.json"
-    },
-    "/instances/{instanceId}/metrics/cpu": {
-      "$ref": "paths/instances.{instanceId}.metrics.cpu.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/requests": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.requests.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/requestsPerSecond": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.requestsPerSecond.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/dataTransferred": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.dataTransferred.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/dataTransferredPerSecond": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.dataTransferredPerSecond.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/connections": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.connections.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/connectionsPerSecond": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.connectionsPerSecond.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/responseCodes": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.responseCodes.json"
-    },
-    "/loadBalancers/{loadBalancerId}/metrics/responseCodesPerSecond": {
-      "$ref": "paths/loadBalancers.{loadBalancerId}.metrics.responseCodesPerSecond.json"
-    },
-    "/instances/{instanceId}/addToPrivateNetwork": {
-      "$ref": "paths/instances.{instanceId}.addToPrivateNetwork.json"
-    },
-    "/instances/{instanceId}/removeFromPrivateNetwork": {
-      "$ref": "paths/instances.{instanceId}.removeFromPrivateNetwork.json"
-    },
-    "/instances/{instanceId}/snapshots": {
-      "$ref": "paths/instances.{instanceId}.snapshots.json"
-    },
-    "/instances/{instanceId}/snapshots/{snapshotId}": {
-      "$ref": "paths/instances.{instanceId}.snapshots.{snapshotId}.json"
-    },
-    "/autoScalingGroups/{autoScalingGroupId}": {
-      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.json"
-    },
-    "/autoScalingGroups/{autoScalingGroupId}/instances": {
-      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.instances.json"
-    },
-    "/autoScalingGroups/{autoScalingGroupId}/registerTargetGroup": {
-      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.registerTargetGroup.json"
-    },
-    "/autoScalingGroups/{autoScalingGroupId}/deregisterTargetGroup": {
-      "$ref": "paths/autoScalingGroups.{autoScalingGroupId}.deregisterTargetGroup.json"
-    },
-    "/targetGroups/{targetGroupId}": {
-      "$ref": "paths/targetGroups.{targetGroupId}.json"
-    },
-    "/targetGroups/{targetGroupId}/targets": {
-      "$ref": "paths/targetGroups.{targetGroupId}.targets.json"
-    },
-    "/targetGroups/{targetGroupId}/registerTargets": {
-      "$ref": "paths/targetGroups.{targetGroupId}.registerTargets.json"
-    },
-    "/targetGroups/{targetGroupId}/deregisterTargets": {
-      "$ref": "paths/targetGroups.{targetGroupId}.deregisterTargets.json"
+    "/vps/{vpsId}/snapshots/{snapshotId}": {
+      "$ref": "paths/vps.{vpsId}.snapshots.{snapshotId}.json"
     },
     "/vps": {
       "$ref": "paths/vps.json"

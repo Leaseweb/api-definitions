@@ -97,6 +97,19 @@
   "post": {
     "description": "The instance must be running before the execution.\n\nThe time taken to create the snapshot depends on several factors, including memory size and usage.\n\nAllowed only one snapshot per instance.",
     "operationId": "createSnapshot",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/createSnapshotOpts.json"
+          },
+          "example": {
+            "name": "my snapshot"
+          }
+        }
+      }
+    },
     "responses": {
       "202": {
         "description": "Request has been accepted and snapshot is going to be ready soon."

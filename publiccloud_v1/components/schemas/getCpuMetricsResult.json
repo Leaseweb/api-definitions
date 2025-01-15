@@ -21,6 +21,9 @@
           "type": "string",
           "format": "date-time"
         },
+        "unit": {
+          "type": "string"
+        },
         "granularity": {
           "$ref": "./metricsGranularity.json"
         },
@@ -33,23 +36,23 @@
               "type": "object",
               "properties": {
                 "average": {
-                  "type": "string",
+                  "type": "number",
                   "description": "Average CPU based on the amount of grouped data points, in percentage",
-                  "example": "10 %"
+                  "example": 10
                 },
                 "expected": {
-                  "type": "string",
+                  "type": "number",
                   "description": "Expected CPU given the average times the amount of days between the `from` and `to` dates, in percentage",
-                  "example": "10 %"
+                  "example": 10
                 },
                 "peak": {
                   "title": "cpuMetricsMetadataSummaryPeak",
                   "type": "object",
                   "properties": {
                     "value": {
-                      "type": "string",
+                      "type": "number",
                       "description": "The highest CPU usage given the provided aggregation and granularity",
-                      "example": "90 %"
+                      "example": 90
                     },
                     "timestamp": {
                       "type": "string",

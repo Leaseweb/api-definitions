@@ -1,40 +1,16 @@
 {
   "post": {
-    "operationId": "post/ips/{ip}/nullRoute",
-    "summary": "Null route an IP",
-    "description": "",
+    "operationId": "nullRouteIP",
     "requestBody": {
       "content": {
         "application/json": {
-          "examples": {
-            "example": {
-              "value": {
-                "automatedUnnullingAt": "2015-06-25T11:13:00Z",
-                "ticketId": "188612",
-                "comment": "This IP is evil"
-              }
-            }
+          "example": {
+            "automatedUnnullingAt": "2015-06-25T11:13:00Z",
+            "comment": "This IP is evil",
+            "ticketId": "188612"
           },
           "schema": {
-            "type": "object",
-            "properties": {
-              "automatedUnnullingAt": {
-                "type": "string",
-                "description": "The date and time when the null route is to be deactivated. The date and time should be specified using the format yyyy-mm-ddThh:mm:ss±hh:mm (with time zone designator) or yyyy-mm-ddThh:mm:ssZ (UTC). If this field is not present then the null route will not be automatically removed.",
-                "format": "date-time",
-                "example": "2015-06-25T11:13:00Z"
-              },
-              "comment": {
-                "type": "string",
-                "description": "A comment to be stored with the null route (e.g. null route reason)",
-                "example": "This IP is evil"
-              },
-              "ticketId": {
-                "type": "string",
-                "description": "A reference to be stored with the null route",
-                "example": "188612"
-              }
-            }
+            "$ref": "../components/schemas/nullRouteIPOpts.json"
           }
         }
       },
@@ -45,79 +21,42 @@
         "description": "",
         "content": {
           "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "id": "4534536",
-                  "ip": "192.0.2.1",
-                  "nulledAt": "2015-06-28T12:00:00Z",
-                  "nulledBy": "john.doe@example.com",
-                  "nullLevel": 1,
-                  "automatedUnnullingAt": "2015-06-25T11:13:00Z",
-                  "unnulledAt": null,
-                  "unnulledBy": null,
-                  "ticketId": "188612",
-                  "comment": "This IP is evil",
-                  "equipmentId": "456",
-                  "assignedContract": {
-                    "id": "123456"
-                  }
-                }
-              }
+            "schema": {
+              "$ref": "../components/schemas/nullRoutedIP.json"
+            },
+            "example": {
+              "assignedContract": {
+                "id": "123456"
+              },
+              "automatedUnnullingAt": "2015-06-25T11:13:00Z",
+              "comment": "This IP is evil",
+              "equipmentId": "456",
+              "id": "4534536",
+              "ip": "192.0.2.1",
+              "nullLevel": 1,
+              "nulledAt": "2015-06-28T12:00:00Z",
+              "nulledBy": "john.doe@example.com",
+              "ticketId": "188612",
+              "unnulledAt": null,
+              "unnulledBy": null
             }
           }
         }
       },
       "401": {
-        "description": "Authentication is required.",
-        "content": {}
+        "$ref": "../components/responses/401.json"
       },
       "403": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "ACCESS_DENIED",
-                  "errorMessage": "The access token is expired or invalid."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/403.json"
       },
       "500": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "SERVER_ERROR",
-                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/500.json"
       },
       "503": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "TEMPORARILY_UNAVAILABLE",
-                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/503.json"
       }
     },
+    "summary": "Null route an IP",
     "tags": [
       "IPs"
     ],
@@ -155,64 +94,26 @@
     ]
   },
   "delete": {
-    "operationId": "delete/ips/{ip}/nullRoute",
-    "summary": "Remove a null route",
-    "description": "",
+    "operationId": "removeIPNullRoute",
     "responses": {
       "200": {
         "description": "Null-route successfully deleted",
         "content": {}
       },
       "401": {
-        "description": "Authentication is required.",
-        "content": {}
+        "$ref": "../components/responses/401.json"
       },
       "403": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "ACCESS_DENIED",
-                  "errorMessage": "The access token is expired or invalid."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/403.json"
       },
       "500": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "SERVER_ERROR",
-                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/500.json"
       },
       "503": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "TEMPORARILY_UNAVAILABLE",
-                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/503.json"
       }
     },
+    "summary": "Remove a null route",
     "tags": [
       "IPs"
     ],
@@ -251,14 +152,7 @@
   },
   "parameters": [
     {
-      "schema": {
-        "type": "string"
-      },
-      "name": "ip",
-      "in": "path",
-      "required": true,
-      "description": "IP address or IP address with prefixLength {ip}_{prefix}. If prefixLength is not given, then we assume 32 (for IPv4) or 128 (for IPv6). PrefixLength is mandatory for IP range, for example, the IPv6 address range with prefixLength = 112",
-      "example": "192.0.2.1"
+      "$ref": "../components/parameters/ip.json"
     }
   ]
 }

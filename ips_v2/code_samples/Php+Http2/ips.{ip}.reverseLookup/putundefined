@@ -6,7 +6,7 @@ $request = new http\Client\Request;
 $body = new http\Message\Body;
 $body->append('{"reverseLookups":[{"ip":"string","reverseLookup":"string"}]}');
 
-$request->setRequestUrl('https://api.leaseweb.com/ipMgmt/v2/ips/%7Bip%7D/reverseLookup');
+$request->setRequestUrl('https://api.leaseweb.com/ipMgmt/v2/ips/192.0.2.1/reverseLookup');
 $request->setRequestMethod('PUT');
 $request->setBody($body);
 

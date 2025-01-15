@@ -2,9 +2,14 @@ import http.client
 
 conn = http.client.HTTPSConnection("api.leaseweb.com")
 
-headers = { 'X-LSW-Auth': "REPLACE_KEY_VALUE" }
+payload = "{\"name\":\"string\"}"
 
-conn.request("POST", "/publicCloud/v1/instances/ace712e9-a166-47f1-9065-4af0f7e7fce1/snapshots", headers=headers)
+headers = {
+    'content-type': "application/json",
+    'X-LSW-Auth': "REPLACE_KEY_VALUE"
+    }
+
+conn.request("POST", "/publicCloud/v1/instances/ace712e9-a166-47f1-9065-4af0f7e7fce1/snapshots", payload, headers)
 
 res = conn.getresponse()
 data = res.read()

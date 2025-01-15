@@ -1,9 +1,0 @@
-{
-  "type": "string",
-  "description": "Resource type",
-  "enum": [
-    "instances",
-    "loadBalancers",
-    "vps"
-  ]
-}

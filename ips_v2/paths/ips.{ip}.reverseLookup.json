@@ -1,8 +1,7 @@
 {
   "get": {
-    "operationId": "get/ips/{ip}/reverseLookup",
-    "summary": "List reverse lookup records for an IPv6 range",
     "description": "Get reverse lookup values set for IPs in the specified range",
+    "operationId": "getReverseLookupRecordList",
     "parameters": [
       {
         "name": "ip",
@@ -13,29 +12,13 @@
         }
       },
       {
-        "name": "reverseLookup",
-        "in": "query",
-        "description": "Filter the list by reverse lookup",
-        "schema": {
-          "type": "string"
-        }
+        "$ref": "../components/parameters/reverseLookup.json"
       },
       {
-        "name": "limit",
-        "in": "query",
-        "schema": {
-          "default": 50,
-          "type": "integer"
-        },
-        "description": "Maximum number of results"
+        "$ref": "../components/parameters/limit.json"
       },
       {
-        "name": "offset",
-        "in": "query",
-        "schema": {
-          "type": "integer"
-        },
-        "description": "Offset of the first result"
+        "$ref": "../components/parameters/offset.json"
       }
     ],
     "responses": {
@@ -43,152 +26,43 @@
         "description": "",
         "content": {
           "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "reverseLookups": [
-                    {
-                      "ip": "2001:db8::0",
-                      "reverseLookup": "name1.example.com"
-                    },
-                    {
-                      "ip": "2001:db8::1",
-                      "reverseLookup": "name2.example.com"
-                    }
-                  ],
-                  "_metadata": {
-                    "totalCount": 3,
-                    "offset": 0,
-                    "limit": 2
-                  }
+            "example": {
+              "_metadata": {
+                "totalCount": 3,
+                "offset": 0,
+                "limit": 2
+              },
+              "reverseLookups": [
+                {
+                  "ip": "2001:db8::0",
+                  "reverseLookup": "name1.example.com"
+                },
+                {
+                  "ip": "2001:db8::1",
+                  "reverseLookup": "name2.example.com"
                 }
-              }
+              ]
             },
             "schema": {
-              "title": "Reverse Lookup list",
-              "description": "Object containing a list of reverse lookup values set for ips in a specific range",
-              "type": "object",
-              "properties": {
-                "reverseLookups": {
-                  "type": "array",
-                  "items": {
-                    "description": "Reverse lookup set for a specific IP address",
-                    "properties": {
-                      "ip": {
-                        "type": "string",
-                        "description": "IP address"
-                      },
-                      "reverseLookup": {
-                        "type": "string",
-                        "description": "Reverse lookup value"
-                      }
-                    },
-                    "title": "Reverse Lookup",
-                    "type": "object"
-                  }
-                },
-                "_metadata": {
-                  "properties": {
-                    "totalCount": {
-                      "type": "number"
-                    },
-                    "offset": {
-                      "type": "number"
-                    },
-                    "limit": {
-                      "type": "number"
-                    }
-                  },
-                  "type": "object"
-                }
-              }
+              "$ref": "../components/schemas/getReverseLookupRecordListResult.json"
             }
           }
         }
       },
       "401": {
-        "content": {},
-        "description": "Authentication is required."
+        "$ref": "../components/responses/401.json"
       },
       "403": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "ACCESS_DENIED",
-                  "errorMessage": "The access token is expired or invalid."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/403.json"
       },
       "500": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "SERVER_ERROR",
-                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/500.json"
       },
       "503": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "TEMPORARILY_UNAVAILABLE",
-                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/503.json"
       }
     },
+    "summary": "List reverse lookup records for an IPv6 range",
     "tags": [
       "IPs"
     ],
@@ -226,50 +100,25 @@
     ]
   },
   "put": {
-    "operationId": "put/ips/{ip}/reverseLookup",
-    "summary": "Set or remove reverse lookup records for an IPv6 range",
     "description": "This endpoint allows to set or unset reverse lookup for multiple IPv6 IPs in a specific IP range. To remove reverse lookup for an IP address set it to `null` or `\"\"`.\nReverse lookup values of IPs not listed in the request body will not be affected.\nYou can set up to 20 records in a single request.\n",
+    "operationId": "updateReverseLookupRecords",
     "requestBody": {
       "content": {
         "application/json": {
-          "examples": {
-            "example": {
-              "value": {
-                "reverseLookups": [
-                  {
-                    "ip": "2001:db8::0",
-                    "reverseLookup": "name1.example.com"
-                  },
-                  {
-                    "ip": "2001:db8::1",
-                    "reverseLookup": "name2.example.com"
-                  }
-                ]
+          "example": {
+            "reverseLookups": [
+              {
+                "ip": "2001:db8::0",
+                "reverseLookup": "name1.example.com"
+              },
+              {
+                "ip": "2001:db8::1",
+                "reverseLookup": "name2.example.com"
               }
-            }
+            ]
           },
           "schema": {
-            "type": "object",
-            "properties": {
-              "reverseLookups": {
-                "type": "array",
-                "items": {
-                  "description": "Reverse lookup set for a specific IP address",
-                  "properties": {
-                    "ip": {
-                      "type": "string",
-                      "description": "IP address"
-                    },
-                    "reverseLookup": {
-                      "type": "string",
-                      "description": "Reverse lookup value"
-                    }
-                  },
-                  "title": "Reverse Lookup",
-                  "type": "object"
-                }
-              }
-            }
+            "$ref": "../components/schemas/updateReverseLookupRecordsOpts.json"
           }
         }
       }
@@ -279,157 +128,41 @@
         "description": "The request has been processed.",
         "content": {
           "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "reverseLookups": [
-                    {
-                      "ip": "2001:db8::0",
-                      "reverseLookup": "name1.example.com"
-                    },
-                    {
-                      "ip": "2001:db8::1",
-                      "reverseLookup": "name2.example.com"
-                    }
-                  ]
+            "example": {
+              "reverseLookups": [
+                {
+                  "ip": "2001:db8::0",
+                  "reverseLookup": "name1.example.com"
+                },
+                {
+                  "ip": "2001:db8::1",
+                  "reverseLookup": "name2.example.com"
                 }
-              }
+              ]
             },
             "schema": {
-              "type": "object",
-              "properties": {
-                "reverseLookups": {
-                  "type": "array",
-                  "items": {
-                    "description": "Reverse lookup set for a specific IP address",
-                    "properties": {
-                      "ip": {
-                        "type": "string",
-                        "description": "IP address"
-                      },
-                      "reverseLookup": {
-                        "type": "string",
-                        "description": "Reverse lookup value"
-                      }
-                    },
-                    "title": "Reverse Lookup",
-                    "type": "object"
-                  }
-                }
-              }
+              "$ref": "../components/schemas/updateReverseLookupRecordsResult.json"
             }
           }
         }
       },
       "400": {
-        "description": "Bad Request",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "BadRequest",
-                  "errorMessage": "Synchronous update maximum batch size exceeded."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        }
+        "$ref": "../components/responses/400.json"
       },
       "401": {
-        "content": {},
-        "description": "Authentication is required."
+        "$ref": "../components/responses/401.json"
       },
       "403": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "ACCESS_DENIED",
-                  "errorMessage": "The access token is expired or invalid."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/403.json"
       },
       "500": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "SERVER_ERROR",
-                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/500.json"
       },
       "503": {
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "TEMPORARILY_UNAVAILABLE",
-                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-                }
-              }
-            },
-            "schema": {
-              "properties": {
-                "errorCode": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          }
-        },
-        "description": ""
+        "$ref": "../components/responses/503.json"
       }
     },
+    "summary": "Set or remove reverse lookup records for an IPv6 range",
     "tags": [
       "IPs"
     ],
@@ -468,13 +201,7 @@
   },
   "parameters": [
     {
-      "schema": {
-        "type": "string"
-      },
-      "name": "ip",
-      "in": "path",
-      "required": true,
-      "description": "IP address or IP address with prefixLength {ip}_{prefix}. If prefixLength is not given, then we assume 32 (for IPv4) or 128 (for IPv6). PrefixLength is mandatory for IP range, for example, the IPv6 address range with prefixLength = 112"
+      "$ref": "../components/parameters/ip.json"
     }
   ]
 }

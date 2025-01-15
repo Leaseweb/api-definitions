@@ -1,9 +1,0 @@
-{
-  "name": "resourceId",
-  "in": "path",
-  "required": true,
-  "description": "Resource ID, which can be an instanceId (UUID) or vpsId (numeric string).",
-  "schema": {
-    "type": "string"
-  }
-}

@@ -4,7 +4,7 @@
     "version": "2.0.1",
     "title": "CDN APIs",
     "summary": "",
-    "description": "> The base URL for this API is: **https://api.leaseweb.com/cdn/v2**\n\n<div class=\"badge\">BETA</div> This API is in BETA. Documentation might be incorrect or incomplete. Functionality might change with the final release.",
+    "description": "> The base URL for this API is: **https://api.leaseweb.com/cdn/v2**",
     "x-logo": {
       "url": "https://developer.leaseweb.com/images/logo.png",
       "altText": "Leaseweb CDN API Documentation",

@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A name to identify your snapshot"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

@@ -5,6 +5,6 @@
   "schema": {
     "type": "string"
   },
-  "description": "Equipment Id",
-  "example": "123581321"
+  "description": "VPS Equipment Id",
+  "example": "999999999"
 }

@@ -1,9 +1,0 @@
-{
-  "name": "resource",
-  "required": true,
-  "description": "Type of resource (Instances, Load Balancers, or Vps).",
-  "in": "path",
-  "schema": {
-    "$ref": "../schemas/resource.json"
-  }
-}

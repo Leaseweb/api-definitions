@@ -4,7 +4,7 @@ const options = {
   "method": "PUT",
   "hostname": "api.leaseweb.com",
   "port": null,
-  "path": "/ipMgmt/v2/ips/%7Bip%7D/reverseLookup",
+  "path": "/ipMgmt/v2/ips/192.0.2.1/reverseLookup",
   "headers": {
     "content-type": "application/json",
     "X-LSW-Auth": "REPLACE_KEY_VALUE"

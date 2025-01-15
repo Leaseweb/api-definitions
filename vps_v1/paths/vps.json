@@ -43,20 +43,6 @@
                 {
                   "id": "123581321",
                   "pack": "Leaseweb VPS 2",
-                  "resources": {
-                    "cpu": {
-                      "value": 4,
-                      "unit": "vCPU"
-                    },
-                    "memory": {
-                      "value": 6,
-                      "unit": "GiB"
-                    },
-                    "publicNetworkSpeed": {
-                      "value": 10000,
-                      "unit": "Mbps"
-                    }
-                  },
                   "region": "eu-central-1",
                   "datacenter": "FRA-01",
                   "reference": "testing",
@@ -82,18 +68,6 @@
                       "networkType": "PUBLIC"
                     }
                   ],
-                  "contract": {
-                    "id": "41228459000100",
-                    "billingFrequency": 1,
-                    "term": 12,
-                    "type": "MONTHLY",
-                    "state": "ACTIVE",
-                    "endsAt": "2024-10-24T21:13:25+00:00",
-                    "createdAt": "2024-10-24T21:13:25+00:00",
-                    "sla": "Basic",
-                    "controlPanel": "cPanel Admin 5",
-                    "inModification": false
-                  },
                   "startedAt": "2024-10-24T21:13:25+00:00"
                 }
               ]
@@ -118,9 +92,7 @@
       }
     },
     "summary": "Get VPS list",
-    "tags": [
-      "VPS"
-    ],
+    "tags": [],
     "x-codeSamples": [
       {
         "lang": "Shell + Curl",

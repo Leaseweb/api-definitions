@@ -4,7 +4,7 @@ const options = {
   "method": "GET",
   "hostname": "api.leaseweb.com",
   "port": null,
-  "path": "/publicCloud/v1/vps/123581321",
+  "path": "/publicCloud/v1/vps/999999999",
   "headers": {
     "X-LSW-Auth": "REPLACE_KEY_VALUE"
   }

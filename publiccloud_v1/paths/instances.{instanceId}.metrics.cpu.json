@@ -25,12 +25,13 @@
                 "from": "2023-10-27T08:00:00+00:00",
                 "to": "2023-10-28T08:00:00+00:00",
                 "granularity": "5m",
+                "unit": "%",
                 "summary": {
                   "cpuMetrics": {
-                    "average": "8.13 %",
-                    "expected": "8.13 %",
+                    "average": 8.13,
+                    "expected": 8.13,
                     "peak": {
-                      "value": "9.98 %",
+                      "value": 9.98,
                       "timestamp": "2023-10-27T08:10:24+00:00"
                     }
                   }

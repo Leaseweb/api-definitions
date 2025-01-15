@@ -89,7 +89,7 @@
     "operationId": "restoreSnapshot",
     "responses": {
       "202": {
-        "description": "Request has been accepted and instance and snapshot is going to be restored to instance soon."
+        "description": "Request has been accepted and snapshot is going to be restored to instance soon."
       },
       "400": {
         "$ref": "../components/responses/400.json"
@@ -151,7 +151,7 @@
     "operationId": "deleteSnapshot",
     "responses": {
       "202": {
-        "description": "Request has been accepted and instance and snapshot is going to be deleted. Its current state can be checked using the snapshots endpoints."
+        "description": "Request has been accepted and snapshot is going to be deleted. Its current state can be checked using the snapshots endpoints."
       },
       "400": {
         "$ref": "../components/responses/400.json"

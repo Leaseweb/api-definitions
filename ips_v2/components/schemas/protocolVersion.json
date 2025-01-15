@@ -1,0 +1,8 @@
+{
+  "type": "integer",
+  "description": "Protocol version",
+  "enum": [
+    4,
+    6
+  ]
+}

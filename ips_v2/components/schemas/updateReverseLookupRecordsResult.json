@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "reverseLookups": {
+      "type": "array",
+      "items": {
+        "$ref": "./reverseLookup.json"
+      }
+    }
+  },
+  "required": [
+    "reverseLookups"
+  ],
+  "type": "object"
+}

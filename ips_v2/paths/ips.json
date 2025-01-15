@@ -1,26 +1,12 @@
 {
   "get": {
-    "operationId": "get/ips",
-    "summary": "List IPs",
-    "description": "",
+    "operationId": "getIPList",
     "parameters": [
       {
-        "name": "limit",
-        "in": "query",
-        "schema": {
-          "default": 10,
-          "type": "integer"
-        },
-        "description": "Limit the number of results returned"
+        "$ref": "../components/parameters/limit.json"
       },
       {
-        "name": "offset",
-        "in": "query",
-        "schema": {
-          "default": 0,
-          "type": "integer"
-        },
-        "description": "Return results starting from the given offset"
+        "$ref": "../components/parameters/offset.json"
       },
       {
         "name": "subnetId",
@@ -34,15 +20,29 @@
         "name": "version",
         "in": "query",
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Protocol version",
+          "enum": [
+            4,
+            6
+          ]
         },
-        "description": "Filter by protocol version (4 or 6)"
+        "description": "Filter by protocol version"
       },
       {
         "name": "type",
         "in": "query",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "NORMAL_IP",
+            "NETWORK",
+            "BROADCAST",
+            "GATEWAY",
+            "ROUTER1",
+            "ROUTER2",
+            "IPMI"
+          ]
         },
         "description": "Filter by IP type"
       },
@@ -63,20 +63,10 @@
         "description": "Filter by whether or not the IP is primary (true or false)"
       },
       {
-        "name": "fromIp",
-        "in": "query",
-        "schema": {
-          "type": "string"
-        },
-        "description": "Return only IPs greater or equal to the specified address"
+        "$ref": "../components/parameters/fromIP.json"
       },
       {
-        "name": "toIp",
-        "in": "query",
-        "schema": {
-          "type": "string"
-        },
-        "description": "Return only IPs lower or equal to the specified address"
+        "$ref": "../components/parameters/toIP.json"
       },
       {
         "name": "ips",
@@ -103,21 +93,10 @@
         "description": "Return only IPs assigned to contracts specified as a comma-separated list of IDs"
       },
       {
-        "name": "sort",
-        "in": "query",
-        "schema": {
-          "type": "string"
-        },
-        "description": "Comma-separated list of sort field names. Prepend the field name with '-' for descending order. E.g. `sort=ip,-nullrouted`. Sortable field names are ip, nullRouted, reverseLookup."
+        "$ref": "../components/parameters/sort.json"
       },
       {
-        "name": "reverseLookup",
-        "in": "query",
-        "schema": {
-          "type": "string"
-        },
-        "description": "Filter by reverse lookup.",
-        "example": "mydomain1.example.com"
+        "$ref": "../components/parameters/reverseLookup.json"
       }
     ],
     "responses": {
@@ -125,230 +104,77 @@
         "description": "",
         "content": {
           "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "ips": [
-                    {
-                      "ip": "192.0.2.1",
-                      "version": 4,
-                      "type": "NORMAL_IP",
-                      "prefixLength": 32,
-                      "primary": true,
-                      "reverseLookup": "mydomain1.example.com",
-                      "nullRouted": false,
-                      "nullLevel": null,
-                      "unnullingAllowed": false,
-                      "equipmentId": "1234",
-                      "assignedContract": {
-                        "id": "5643634"
-                      },
-                      "subnet": {
-                        "id": "192.0.2.0_24",
-                        "networkIp": "192.0.2.0",
-                        "prefixLength": 24,
-                        "gateway": "192.0.2.254"
-                      }
-                    },
-                    {
-                      "ip": "192.0.2.2",
-                      "version": 4,
-                      "type": "NORMAL_IP",
-                      "prefixLength": 32,
-                      "primary": false,
-                      "reverseLookup": "mydomain2.example.com",
-                      "nullRouted": false,
-                      "nullLevel": null,
-                      "unnullingAllowed": false,
-                      "equipmentId": "1235",
-                      "assignedContract": {
-                        "id": "4363465"
-                      },
-                      "subnet": {
-                        "id": "192.0.2.0_24",
-                        "networkIp": "192.0.2.0",
-                        "prefixLength": 24,
-                        "gateway": "192.0.2.254"
-                      }
-                    }
-                  ],
-                  "_metadata": {
-                    "totalCount": 2,
-                    "offset": 0,
-                    "limit": 50
-                  }
-                }
-              }
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "ips": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "default": {},
-                    "properties": {
-                      "ip": {
-                        "type": "string",
-                        "description": "IP address"
-                      },
-                      "version": {
-                        "type": "integer",
-                        "description": "Protocol version (4 or 6)",
-                        "default": 0
-                      },
-                      "type": {
-                        "type": "string",
-                        "description": "Type of the IP (NORMAL_IP, NETWORK, BROADCAST, GATEWAY, ROUTER1, ROUTER2, IPMI)"
-                      },
-                      "prefixLength": {
-                        "type": "integer",
-                        "description": "Prefix length of the IP range represented by the record. Note: this is not the same as `subnet.prefixLength`.",
-                        "default": 0
-                      },
-                      "primary": {
-                        "type": "boolean",
-                        "description": "Boolean indicating if this is the primary IP of the assigned equipment"
-                      },
-                      "reverseLookup": {
-                        "type": "string",
-                        "description": "Reverse lookup set for the IP. This only applies to IPv4. For IPv6 see [GET /ips/{ip}/reverseLookup](#operation/get/ips/{ip}/reverseLookup)."
-                      },
-                      "nullRouted": {
-                        "type": "boolean",
-                        "description": "Boolean to indicate if the IP is null-routed",
-                        "default": false
-                      },
-                      "nullLevel": {
-                        "type": "integer",
-                        "nullable": true,
-                        "description": "Null route level"
-                      },
-                      "unnullingAllowed": {
-                        "type": "boolean",
-                        "description": "Boolean indicating if the null route can be removed",
-                        "default": false
-                      },
-                      "equipmentId": {
-                        "type": "string",
-                        "description": "ID of the equipment using the IP"
-                      },
-                      "assignedContract": {
-                        "type": "object",
-                        "description": "Object containing information about the contract connected to the IP",
-                        "default": {},
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "description": "ID of the contract connected to the IP"
-                          }
-                        }
-                      },
-                      "subnet": {
-                        "type": "object",
-                        "description": "Object containing information about the network and gateway",
-                        "default": {},
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "description": "Subnet identifier consisting of network IP and prefix length separated by underscore (e.g. 192.0.2.0_24)"
-                          },
-                          "networkIp": {
-                            "type": "string",
-                            "description": "Network IP of the subnet"
-                          },
-                          "prefixLength": {
-                            "type": "integer",
-                            "description": "Address prefix length",
-                            "default": 0
-                          },
-                          "gateway": {
-                            "type": "string",
-                            "description": "The gateway IP to be used in network settings"
-                          }
-                        }
-                      }
-                    }
+            "example": {
+              "_metadata": {
+                "totalCount": 2,
+                "offset": 0,
+                "limit": 50
+              },
+              "ips": [
+                {
+                  "ip": "192.0.2.1",
+                  "version": 4,
+                  "type": "NORMAL_IP",
+                  "prefixLength": 32,
+                  "primary": true,
+                  "reverseLookup": "mydomain1.example.com",
+                  "nullRouted": false,
+                  "nullLevel": null,
+                  "unnullingAllowed": false,
+                  "equipmentId": "1234",
+                  "assignedContract": {
+                    "id": "5643634"
+                  },
+                  "subnet": {
+                    "id": "192.0.2.0_24",
+                    "networkIp": "192.0.2.0",
+                    "prefixLength": 24,
+                    "gateway": "192.0.2.254"
                   }
                 },
-                "_metadata": {
-                  "type": "object",
-                  "description": "An explanation about the purpose of this instance.",
-                  "default": {},
-                  "properties": {
-                    "totalCount": {
-                      "type": "integer",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": 0
-                    },
-                    "offset": {
-                      "type": "integer",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": 0
-                    },
-                    "limit": {
-                      "type": "integer",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": 0
-                    }
+                {
+                  "ip": "192.0.2.2",
+                  "version": 4,
+                  "type": "NORMAL_IP",
+                  "prefixLength": 32,
+                  "primary": false,
+                  "reverseLookup": "mydomain2.example.com",
+                  "nullRouted": false,
+                  "nullLevel": null,
+                  "unnullingAllowed": false,
+                  "equipmentId": "1235",
+                  "assignedContract": {
+                    "id": "4363465"
+                  },
+                  "subnet": {
+                    "id": "192.0.2.0_24",
+                    "networkIp": "192.0.2.0",
+                    "prefixLength": 24,
+                    "gateway": "192.0.2.254"
                   }
                 }
-              }
+              ]
+            },
+            "schema": {
+              "$ref": "../components/schemas/getIPListResult.json"
             }
           }
         }
       },
       "401": {
-        "description": "Authentication is required.",
-        "content": {}
+        "$ref": "../components/responses/401.json"
       },
       "403": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "ACCESS_DENIED",
-                  "errorMessage": "The access token is expired or invalid."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/403.json"
       },
       "500": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "SERVER_ERROR",
-                  "errorMessage": "The server encountered an unexpected condition that prevented it from fulfilling the request."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/500.json"
       },
       "503": {
-        "description": "",
-        "content": {
-          "application/json": {
-            "examples": {
-              "example": {
-                "value": {
-                  "errorCode": "TEMPORARILY_UNAVAILABLE",
-                  "errorMessage": "The server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../components/responses/503.json"
       }
     },
+    "summary": "List IPs",
     "tags": [
       "IPs"
     ],

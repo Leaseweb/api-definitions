@@ -17,7 +17,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "./metricsMetadataProperties.json"
+          "$ref": "./metricsDataTrafficMetadataProperties.json"
         },
         {
           "properties": {

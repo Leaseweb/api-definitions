@@ -1,9 +1,0 @@
-{
-  "name": "resource",
-  "required": true,
-  "description": "Type of resource (Instances or Vps).",
-  "in": "path",
-  "schema": {
-    "$ref": "../schemas/baseResource.json"
-  }
-}

@@ -9,7 +9,8 @@
         "id",
         "sla",
         "controlPanel",
-        "inModification"
+        "inModification",
+        "dataTraffic"
       ],
       "properties": {
         "id": {
@@ -28,6 +29,25 @@
         "inModification": {
           "type": "boolean",
           "example": false
+        },
+        "dataTraffic": {
+          "title": "dataTraffic",
+          "description": "Data traffic commitment",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "example": 30
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "TB",
+                "GB"
+              ],
+              "example": "TB"
+            }
+          }
         }
       }
     }

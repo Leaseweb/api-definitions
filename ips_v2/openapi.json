@@ -1,14 +1,18 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.0.0",
   "info": {
     "title": "LeaseWeb API for IP address management",
     "version": "v2",
     "description": "> The base URL for this API is: **https://api.leaseweb.com/ipMgmt/v2/**",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
     "x-logo": {
-      "url": "/images/logo.png",
       "altText": "Leaseweb developer documentation",
       "backgroundColor": "#5484c6",
-      "href": "http://developer.leaseweb.com"
+      "href": "https://developer.leaseweb.com",
+      "url": "https://developer.leaseweb.com/images/logo.png"
     }
   },
   "servers": [
@@ -23,13 +27,13 @@
   ],
   "tags": [
     {
+      "description": "The API uses standard HTTP status codes to indicate the success or failure of the API call. The response will be JSON. Most APIs use the following format:\n\n```json\n{\n    \"errorCode\": \"APP00800\",\n    \"errorMessage\": \"The connection with the DB cannot be established.\",\n    \"correlationId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"userMessage\": \"Cannot handle your request at the moment. Please try again later.\",\n    \"reference\": \"https://developer.leaseweb.com/errors/APP00800\"\n}\n```\n",
       "name": "Errors",
-      "description": "The API uses standard HTTP status codes to indicate the success or failure of the API call. The response will be JSON. Most APIs use the following format:\n\n```\n{\n\"errorCode\" : \"APP00800\",\n\"errorMessage\" : \"The connection with the DB cannot be established.\",\n\"correlationId\" : \"550e8400-e29b-41d4-a716-446655440000\",\n\"userMessage\" : \"Cannot handle your request at the moment. Please try again later.\",\n\"reference\" : \"http://developer.leaseweb.com/errors/APP00800\"\n}\n```\n",
       "x-traitTag": true
     },
     {
-      "name": "Authentication",
-      "description": "Authentication for the APIs is required. To authenticate your call, you will need to sent your API key as `X-LSW-Auth` header.\n\nYou can generate API keys in the [Customer Portal](https://secure.leaseweb.com/api-client-management/).",
+      "description": "Authentication for the APIs is required. To authenticate your call, you will need to sent your API key as `X-LSW-Auth` header.\n\nYou can generate API keys in the [Customer Portal](https://secure.leaseweb.com/api-client-management/).\n",
+      "name": "API Key Authentication",
       "x-traitTag": true
     }
   ],
@@ -59,8 +63,7 @@
         "name": "X-LSW-Auth",
         "type": "apiKey",
         "in": "header",
-        "example": "213423-2134234-234234-23424",
-        "description": ""
+        "description": "API key authentication by setting `X-LSW-Auth` header."
       }
     }
   }
